@@ -6,12 +6,367 @@ filters:
   - webr
 ---
 
-## Welcome
+## Exercise 1: Calculate Average Temperature
 
-This is a test page to verify HTML generation.
+Calculate the mean of the `Temp` column in the `airquality` dataset.
 
 ```{webr-r}
-# Students can edit and run this code!
-data <- c(10, 20, 30, 40, 50)
-mean(data)
+# Write your code here:
+
 ```
+
+::: {.callout-note collapse="true"}
+### 💡 Click to view Solution
+
+```r
+mean(airquality$Temp, na.rm = TRUE)
+# Output: 77.88235
+```
+:::
+
+## 1. Creating Vectors
+
+### Exercise 1.1
+Create a vector named `scores` containing the numbers `85`, `90`, `78`, and `92`.
+
+```{webr-r}
+# Write your code here:
+
+```
+
+::: {.callout-note collapse="true"}
+### 💡 Click to view Solution
+
+```r
+scores <- c(85, 90, 78, 92)
+scores
+```
+:::
+
+---
+
+## 2. Managing Workspace (`ls`, `rm`, `rm(list=ls())`)
+
+### Exercise 2.1
+List all objects currently in your R environment using `ls()`.
+
+```{webr-r}
+# 1. Create two test variables:
+a <- 10
+b <- 20
+
+# 2. Write your code to list all objects:
+
+```
+
+::: {.callout-note collapse="true"}
+### 💡 Click to view Solution
+
+```r
+ls()
+```
+:::
+
+### Exercise 2.2
+Remove only variable `a` from your environment using `rm()`.
+
+```{webr-r}
+a <- 10
+b <- 20
+
+# Remove variable 'a':
+
+```
+
+::: {.callout-note collapse="true"}
+### 💡 Click to view Solution
+
+```r
+rm(a)
+# Verify with ls()
+ls()
+```
+:::
+
+### Exercise 2.3
+Clear all objects from your working environment using `rm(list = ls())`.
+
+```{webr-r}
+x <- 1; y <- 2; z <- 3
+
+# Clear everything from the environment:
+
+```
+
+::: {.callout-note collapse="true"}
+### 💡 Click to view Solution
+
+```r
+rm(list = ls())
+# Verify environment is empty
+ls()
+```
+:::
+
+---
+
+## 3. Printing & Text Output (`print`, `cat`, `paste`, `paste0`)
+
+### Exercise 3.1
+Use `print()` to display the text `"Hello, R User!"`.
+
+```{webr-r}
+# Write your code here:
+
+```
+
+::: {.callout-note collapse="true"}
+### 💡 Click to view Solution
+
+```r
+print("Hello, R User!")
+```
+:::
+
+### Exercise 3.2
+Use `cat()` to print `"Score:"` followed by the value `95` separated by a space and ending with a newline (`\n`).
+
+```{webr-r}
+score_val <- 95
+
+# Write your cat() statement here:
+
+```
+
+::: {.callout-note collapse="true"}
+### 💡 Click to view Solution
+
+```r
+cat("Score:", score_val, "\n")
+```
+:::
+
+### Exercise 3.3
+Use `paste()` to join `"Item"` and the numbers `1:3` with a hyphen (`-`) as a separator.
+
+```{webr-r}
+# Write your paste() statement here:
+
+```
+
+::: {.callout-note collapse="true"}
+### 💡 Click to view Solution
+
+```r
+paste("Item", 1:3, sep = "-")
+# Output: "Item-1" "Item-2" "Item-3"
+```
+:::
+
+### Exercise 3.4
+Use `paste0()` to concatenate `"User"` and the number `101` with **no space**.
+
+```{webr-r}
+# Write your paste0() statement here:
+
+```
+
+::: {.callout-note collapse="true"}
+### 💡 Click to view Solution
+
+```r
+paste0("User", 101)
+# Output: "User101"
+```
+:::
+
+---
+
+## 4. Matrices & Combining Data (`matrix`, `cbind`)
+
+### Exercise 4.1
+Create a 2x3 matrix (2 rows, 3 columns) containing values `1` through `6`.
+
+```{webr-r}
+# Write your code here:
+
+```
+
+::: {.callout-note collapse="true"}
+### 💡 Click to view Solution
+
+```r
+mat <- matrix(1:6, nrow = 2, ncol = 3)
+mat
+```
+:::
+
+### Exercise 4.2
+Combine vectors `x = c(1, 2, 3)` and `y = c(4, 5, 6)` as columns using `cbind()`.
+
+```{webr-r}
+x <- c(1, 2, 3)
+y <- c(4, 5, 6)
+
+# Combine x and y using cbind():
+
+```
+
+::: {.callout-note collapse="true"}
+### 💡 Click to view Solution
+
+```r
+cbind(x, y)
+```
+:::
+
+---
+
+## 5. Lists & Data Frames (`list`, `data.frame`)
+
+### Exercise 5.1
+Create a `list` named `student` containing a named element `name = "Alice"` and `grades = c(88, 92)`.
+
+```{webr-r}
+# Write your code here:
+
+```
+
+::: {.callout-note collapse="true"}
+### 💡 Click to view Solution
+
+```r
+student <- list(name = "Alice", grades = c(88, 92))
+student
+```
+:::
+
+### Exercise 5.2
+Create a `data.frame` named `df` with two columns: `Name` (`"John"`, `"Sara"`) and `Age` (`21`, `22`).
+
+```{webr-r}
+# Write your code here:
+
+```
+
+::: {.callout-note collapse="true"}
+### 💡 Click to view Solution
+
+```r
+df <- data.frame(
+  Name = c("John", "Sara"),
+  Age = c(21, 22)
+)
+df
+```
+:::
+
+---
+
+## 6. Data Manipulation (`subset`, `transform`, `within`)
+
+### Exercise 6.1
+Filter the `airquality` dataset using `subset()` to extract rows where `Temp > 90` and only keep columns `Ozone` and `Temp`.
+
+```{webr-r}
+# Write your subset() expression:
+
+```
+
+::: {.callout-note collapse="true"}
+### 💡 Click to view Solution
+
+```r
+subset(airquality, Temp > 90, select = c(Ozone, Temp))
+```
+:::
+
+### Exercise 6.2
+Use `transform()` on `df` to add a new column `Age_Months` which equals `Age * 12`.
+
+```{webr-r}
+df <- data.frame(Name = c("John", "Sara"), Age = c(21, 22))
+
+# Write your transform() code here:
+
+```
+
+::: {.callout-note collapse="true"}
+### 💡 Click to view Solution
+
+```r
+transform(df, Age_Months = Age * 12)
+```
+:::
+
+### Exercise 6.3
+Use `within()` to modify `df` by adding an `Adult` column set to `TRUE` if `Age >= 18`.
+
+```{webr-r}
+df <- data.frame(Name = c("John", "Sara"), Age = c(21, 22))
+
+# Write your within() expression here:
+
+```
+
+::: {.callout-note collapse="true"}
+### 💡 Click to view Solution
+
+```r
+df <- within(df, {
+  Adult <- Age >= 18
+})
+df
+```
+:::
+
+---
+
+## 7. Missing Values (`NA`)
+
+### Exercise 7.1
+Given the vector `vals <- c(10, NA, 30, NA, 50)`:
+1. Find which values are missing using `is.na()`.
+2. Calculate the mean of `vals` excluding missing values.
+
+```{webr-r}
+vals <- c(10, NA, 30, NA, 50)
+
+# 1. Identify missing values:
+
+# 2. Calculate mean ignoring NAs:
+
+```
+
+::: {.callout-note collapse="true"}
+### 💡 Click to view Solution
+
+```r
+# 1. Check for missing values
+is.na(vals)
+
+# 2. Calculate mean ignoring NA values
+mean(vals, na.rm = TRUE)
+```
+:::
+
+---
+
+## 8. Packages & Libraries (`library`)
+
+### Exercise 8.1
+Load the built-in `grid` package using `library()` and print its version.
+
+```{webr-r}
+# Load the 'grid' library and printpackageVersion("grid")
+
+```
+
+::: {.callout-note collapse="true"}
+### 💡 Click to view Solution
+
+```r
+library(grid)
+packageVersion("grid")
+```
+:::
