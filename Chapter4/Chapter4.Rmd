@@ -1,0 +1,394 @@
+---
+title: "Web Exercises"
+output: webexercises::webexercises_default
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+library(webexercises)
+```
+
+# Welcome to the Probability Quiz!
+
+Test your knowledge of random distributions, probability functions, and simulations in Base R. Select the correct answer for each question below.
+
+---
+
+### Question 1: Reproducibility in Probability
+Which function is used to ensure that a sequence of random numbers generated in R can be exactly reproduced by another user?
+
+```{r q1, results='asis'}
+opts1 <- c(
+  "`random.seed()`<br>",
+  answer = "`set.seed()`<br>",
+  "`reproduce()`<br>",
+  "`fix.seed()`<br>"
+)
+```
+
+`r webexercises::longmcq(opts1)`
+
+`r hide("Show Explanation")`
+Using `set.seed(123)` (or any integer) forces R's random number generator to start at the exact same sequence, making simulations fully reproducible.
+`r unhide()`
+
+---
+
+### Question 2: The Prefix Convention
+In R, probability distributions use a standard set of prefixes (`d`, `p`, `q`, `r`). Which prefix is used to calculate the **Cumulative Distribution Function (CDF)**?
+
+```{r q2, results='asis'}
+opts2 <- c(
+  "`d` (e.g., `dnorm`)<br>",
+  answer = "`p` (e.g., `pnorm`)<br>",
+  "`q` (e.g., `qnorm`)<br>",
+  "`r` (e.g., `rnorm`)<br>"
+)
+cat(longmcq(opts2))
+```
+
+`r hide("Show Explanation")`
+The `p` prefix stands for "probability" and calculates the CDF (the probability that a random variable is less than or equal to a value). `d` is for density, `q` is for quantile, and `r` is for random generation.
+`r unhide()`
+
+---
+
+### Question 3: Simulating a Die Roll
+How would you simulate rolling a fair six-sided die 10 times in R?
+
+```{r q3, results='asis'}
+opts3 <- c(
+  answer = "`sample(1:6, 10, replace = TRUE)`<br>",
+  "`sample(1:6, 10, replace = FALSE)`<br>",
+  "`runif(10, 1, 6)`<br>",
+  "`rbinom(10, 6, 0.5)`<br>"
+)
+cat(longmcq(opts3))
+```
+
+`r hide("Show Explanation")`
+Because a die can land on the same number multiple times, you must sample from the numbers 1 to 6 **with replacement** (`replace = TRUE`).
+`r unhide()`
+
+---
+
+### Question 4: Normal Distribution Density
+Which function returns the height of the probability density function (PDF) for a normal distribution at a specific value `x`?
+
+```{r q4, results='asis'}
+opts4 <- c(
+  answer = "`dnorm(x)`<br>",
+  "`pnorm(x)`<br>",
+  "`qnorm(x)`<br>",
+  "`rnorm(x)`<br>"
+)
+cat(longmcq(opts4))
+```
+
+`r hide("Show Explanation")`
+The `d` prefix stands for "density", which evaluates the PDF curve at the given coordinate.
+`r unhide()`
+
+---
+
+### Question 5: Generating Normal Random Variables
+What does the code `rnorm(5, mean = 10, sd = 2)` do?
+
+```{r q5, results='asis'}
+opts5 <- c(
+  "Generates 5 random numbers from a uniform distribution between 10 and 2.<br>",
+  "Generates 5 random numbers from a normal distribution with a mean of 10 and a variance of 2.<br>",
+  answer = "Generates 5 random numbers from a normal distribution with a mean of 10 and a standard deviation of 2.<br>",
+  "Calculates the exact probability of getting the number 5 in a normal distribution.<br>"
+)
+cat(longmcq(opts5))
+```
+
+`r hide("Show Explanation")`
+The `rnorm()` function takes the number of observations (`n`), the `mean`, and the standard deviation (`sd`) as its primary arguments.
+`r unhide()`
+
+---
+
+### Question 6: Uniform Distribution
+Which command generates a single random number uniformly distributed between 0 and 1?
+
+```{r q6, results='asis'}
+opts6 <- c(
+  answer = "`runif(1, min = 0, max = 1)`<br>",
+  "`rnorm(1, 0, 1)`<br>",
+  "`sample(0:1, 1)`<br>",
+  "`rbinom(1, 1, 0.5)`<br>"
+)
+cat(longmcq(opts6))
+```
+
+`r hide("Show Explanation")`
+`runif()` stands for "random uniform." It generates a continuous decimal value equally likely to fall anywhere between the `min` and `max` parameters.
+`r unhide()`
+
+---
+
+### Question 7: Exact Binomial Probability
+How do you calculate the exact probability of getting exactly 3 heads in 10 flips of a fair coin?
+
+```{r q7, results='asis'}
+opts7 <- c(
+  "`pbinom(3, size = 10, prob = 0.5)`<br>",
+  answer = "`dbinom(3, size = 10, prob = 0.5)`<br>",
+  "`qbinom(3, size = 10, prob = 0.5)`<br>",
+  "`rbinom(3, size = 10, prob = 0.5)`<br>"
+)
+cat(longmcq(opts7))
+```
+
+`r hide("Show Explanation")`
+For discrete distributions like the binomial, the density function (`d` prefix) calculates the exact probability of a specific outcome $P(X = x)$.
+`r unhide()`
+
+---
+
+### Question 8: Cumulative Binomial Probability
+Which function calculates the probability of getting **3 or fewer** heads in 10 flips of a fair coin?
+
+```{r q8, results='asis'}
+opts8 <- c(
+  answer = "`pbinom(3, size = 10, prob = 0.5)`<br>",
+  "`dbinom(3, size = 10, prob = 0.5)`<br>",
+  "`sum(rbinom(10, 1, 0.5) <= 3)`<br>",
+  "`qbinom(3, size = 10, prob = 0.5)`<br>"
+)
+cat(longmcq(opts8))
+```
+
+`r hide("Show Explanation")`
+The `p` prefix (CDF) sums up the probabilities of getting 0, 1, 2, and 3 heads $P(X \le 3)$.
+`r unhide()`
+
+---
+
+### Question 9: Poisson Distribution
+If a call center receives an average of 5 calls per hour, which function finds the probability of receiving exactly 7 calls in a specific hour?
+
+```{r q9, results='asis'}
+opts9 <- c(
+  answer = "`dpois(7, lambda = 5)`<br>",
+  "`ppois(7, lambda = 5)`<br>",
+  "`dpois(5, lambda = 7)`<br>",
+  "`rpois(7, lambda = 5)`<br>"
+)
+cat(longmcq(opts9))
+```
+
+`r hide("Show Explanation")`
+The `dpois()` function evaluates the probability mass for the Poisson distribution. The `lambda` argument represents the known average rate.
+`r unhide()`
+
+---
+
+### Question 10: Combinatorics
+Which R function calculates the number of combinations (e.g., "10 choose 3")?
+
+```{r q10, results='asis'}
+opts10 <- c(
+  "`comb(10, 3)`<br>",
+  answer = "`choose(10, 3)`<br>",
+  "`factorial(10) / factorial(3)`<br>",
+  "`combinations(10, 3)`<br>"
+)
+cat(longmcq(opts10))
+```
+
+`r hide("Show Explanation")`
+The `choose(n, k)` function is a built-in base R function that computes the binomial coefficient, avoiding manual factorial arithmetic.
+`r unhide()`
+
+---
+
+### Question 11: Weighted Sampling
+How do you draw a single item from the vector `c('A', 'B')`, where 'A' has a 70% probability of being chosen and 'B' has a 30% probability?
+
+```{r q11, results='asis'}
+opts11 <- c(
+  answer = "`sample(c('A', 'B'), 1, prob = c(0.7, 0.3))`<br>",
+  "`sample(c('A', 'B'), 1, weights = c(70, 30))`<br>",
+  "`rbinom(1, size = 2, prob = 0.7)`<br>",
+  "`choose(c('A', 'B'), 1, prob = c(0.7, 0.3))`<br>"
+)
+cat(longmcq(opts11))
+```
+
+`r hide("Show Explanation")`
+The `sample()` function accepts a `prob` argument where you can pass a vector of custom probabilities corresponding to each item you are sampling.
+`r unhide()`
+
+---
+
+### Question 12: Finding Quantiles
+Which function finds the Z-score corresponding to the 95th percentile of the standard normal distribution?
+
+```{r q12, results='asis'}
+opts12 <- c(
+  answer = "`qnorm(0.95)`<br>",
+  "`pnorm(0.95)`<br>",
+  "`dnorm(0.95)`<br>",
+  "`rnorm(0.95)`<br>"
+)
+cat(longmcq(opts12))
+```
+
+`r hide("Show Explanation")`
+The `q` prefix stands for "quantile." It is the inverse of the CDF. If you give it a probability (0.95), it returns the threshold value (Z-score) below which that percentage of the data lies.
+`r unhide()`
+
+---
+
+### Question 13: Upper Tail Probabilities
+By default, `pnorm(1.96)` calculates the lower tail $P(X \le 1.96)$. How do you calculate the upper tail probability $P(X > 1.96)$ using the same function?
+
+```{r q13, results='asis'}
+opts13 <- c(
+  "`pnorm(1.96, upper = TRUE)`<br>",
+  answer = "`pnorm(1.96, lower.tail = FALSE)`<br>",
+  "`1 + pnorm(1.96)`<br>",
+  "`pnorm(1.96, tail = 'right')`<br>"
+)
+cat(longmcq(opts13))
+```
+
+`r hide("Show Explanation")`
+Setting the `lower.tail` argument to `FALSE` is the standard way to calculate upper tail probabilities in R, which is mathematically equivalent to `1 - pnorm(1.96)`.
+`r unhide()`
+
+---
+
+### Question 14: The Exponential Distribution
+What does `rexp(10, rate = 0.2)` generate?
+
+```{r q14, results='asis'}
+opts14 <- c(
+  answer = "10 random values from an exponential distribution with lambda = 0.2.<br>",
+  "The probability density of an exponential distribution evaluated at 10.<br>",
+  "10 random values from a Poisson distribution.<br>",
+  "The cumulative probability up to the value 10.<br>"
+)
+cat(longmcq(opts14))
+```
+
+`r hide("Show Explanation")`
+The `r` prefix generates random sequences, and `exp` references the exponential distribution, which models the time between events using the `rate` parameter.
+`r unhide()`
+
+---
+
+### Question 15: Factorials in Math
+To calculate $5!$ (5 factorial), which R code should you use?
+
+```{r q15, results='asis'}
+opts15 <- c(
+  "`fact(5)`<br>",
+  answer = "`factorial(5)`<br>",
+  "`prod(1, 5)`<br>",
+  "`5!`<br>"
+)
+cat(longmcq(opts15))
+```
+
+`r hide("Show Explanation")`
+R has a dedicated `factorial()` function. Using the literal exclamation mark (`5!`) will result in a syntax error because `!` is used as the logical "NOT" operator in R.
+`r unhide()`
+
+---
+
+### Question 16: Empirical Probabilities
+If `x <- runif(100)`, what does `mean(x < 0.2)` approximately evaluate to?
+
+```{r q16, results='asis'}
+opts16 <- c(
+  "The exact number 0.2.<br>",
+  "A logical vector of TRUE and FALSE.<br>",
+  answer = "The empirical proportion of generated values less than 0.2 (approximately 0.2).<br>",
+  "An error because `mean()` cannot take a logical condition.<br>"
+)
+cat(longmcq(opts16))
+```
+
+`r hide("Show Explanation")`
+When you take the mean of a logical statement (like `x < 0.2`), R treats `TRUE` as 1 and `FALSE` as 0. Therefore, the average equals the proportion of times the condition was met.
+`r unhide()`
+
+---
+
+### Question 17: Default Sampling Behavior
+What happens if you run `sample(1:50, 5)`?
+
+```{r q17, results='asis'}
+opts17 <- c(
+  "It draws 5 numbers from 1 to 50 with replacement.<br>",
+  answer = "It draws 5 numbers from 1 to 50 without replacement.<br>",
+  "It samples numbers from 1 to 5 exactly 50 times.<br>",
+  "It returns an error because `replace` is missing.<br>"
+)
+cat(longmcq(opts17))
+```
+
+`r hide("Show Explanation")`
+By default, the `sample()` function always operates **without replacement** (`replace = FALSE`). You must explicitly change this if you want duplicate draws.
+`r unhide()`
+
+---
+
+### Question 18: Student's t-Distribution
+Which function finds the cumulative probability $P(T \le 2.1)$ for a t-distribution with 15 degrees of freedom?
+
+```{r q18, results='asis'}
+opts18 <- c(
+  answer = "`pt(2.1, df = 15)`<br>",
+  "`dt(2.1, df = 15)`<br>",
+  "`qt(2.1, df = 15)`<br>",
+  "`rt(2.1, df = 15)`<br>"
+)
+cat(longmcq(opts18))
+```
+
+`r hide("Show Explanation")`
+The `p` prefix is used for the cumulative probability, and `t` represents the t-distribution. The degrees of freedom are set using the `df` argument.
+`r unhide()`
+
+---
+
+### Question 19: Chi-Squared Simulation
+How do you generate 20 random observations from a Chi-squared distribution with 4 degrees of freedom?
+
+```{r q19, results='asis'}
+opts19 <- c(
+  answer = "`rchisq(20, df = 4)`<br>",
+  "`rchi(20, df = 4)`<br>",
+  "`qchisq(20, df = 4)`<br>",
+  "`pchisq(20, df = 4)`<br>"
+)
+cat(longmcq(opts19))
+```
+
+`r hide("Show Explanation")`
+The function name for the Chi-squared distribution in R is `chisq`. Adding the `r` prefix allows you to generate random values from it.
+`r unhide()`
+
+---
+
+### Question 20: Calculating Empirical Probability
+You simulate 1000 coin flips with `flips <- sample(c('H', 'T'), 1000, replace = TRUE)`. Which of the following correctly calculates the empirical probability of getting heads ('H')?
+
+```{r q20, results='asis'}
+opts20 <- c(
+  "`sum(flips == 'H') / 1000`<br>",
+  "`mean(flips == 'H')`<br>",
+  answer = "Both `sum(flips == 'H') / 1000` and `mean(flips == 'H')` will work.<br>",
+  "`prop(flips, 'H')`<br>"
+)
+cat(longmcq(opts20))
+```
+
+`r hide("Show Explanation")`
+Summing the true statements and dividing by the total `sum(x) / length(x)` is mathematically identical to just calculating the average of the true statements `mean(x)`. Both are completely valid ways to calculate probability in simulations.
+`r unhide()`

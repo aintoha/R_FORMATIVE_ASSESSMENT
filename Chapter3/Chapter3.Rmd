@@ -1,0 +1,394 @@
+---
+title: "Chapter 3"
+output: webexercises::webexercises_default
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+library(webexercises)
+```
+
+
+# Functions and Apply Family Quiz
+
+Test your knowledge of custom functions, lexical scoping, and the powerful `apply` family in Base R. 
+
+---
+
+### Question 1: Defining a Function
+What is the correct syntax for creating a custom function in R?
+
+```{r q1, results='asis'}
+opts1 <- c(
+  "`my_func <- def(x) { x * 2 }`<br>",
+  answer = "`my_func <- function(x) { x * 2 }`<br>",
+  "`function my_func(x) { x * 2 }`<br>",
+  "`create function my_func(x) { x * 2 }`<br>"
+)
+cat(longmcq(opts1))
+```
+
+`r hide("Show Explanation")`
+In R, functions are objects. You define them using the `function()` keyword and assign them to a variable name using the standard assignment operator (`<-`).
+`r unhide()`
+
+---
+
+### Question 2: Default Arguments
+How do you specify a default value of `10` for an argument `y` in a function?
+
+```{r q2, results='asis'}
+opts2 <- c(
+  "`my_func <- function(x, y == 10) { ... }`<br>",
+  "`my_func <- function(x, default(y) = 10) { ... }`<br>",
+  answer = "`my_func <- function(x, y = 10) { ... }`<br>",
+  "`my_func <- function(x, y <- 10) { ... }`<br>"
+)
+cat(longmcq(opts2))
+```
+
+`r hide("Show Explanation")`
+Default arguments are set using the `=` operator directly inside the function's parameter list. If the user does not provide `y`, it will automatically default to `10`.
+`r unhide()`
+
+---
+
+### Question 3: Return Values
+If a function does not have an explicit `return()` statement, what does it output?
+
+```{r q3, results='asis'}
+opts3 <- c(
+  "It returns `NULL`.<br>",
+  "It throws an error.<br>",
+  "It returns the first evaluated expression.<br>",
+  answer = "It returns the result of the very last evaluated expression.<br>"
+)
+cat(longmcq(opts3))
+```
+
+`r hide("Show Explanation")`
+By default, R functions automatically return the value of the last evaluated expression in the function body. Explicit `return()` statements are only strictly required if you want to exit the function early.
+`r unhide()`
+
+---
+
+### Question 4: The `...` Argument
+What is the purpose of the dot-dot-dot (`...`) argument in an R function?
+
+```{r q4, results='asis'}
+opts4 <- c(
+  "It pauses the execution of the function.<br>",
+  answer = "It allows passing a variable number of extra arguments to another function inside the body.<br>",
+  "It creates a vector of infinite length.<br>",
+  "It hides the function's source code from the user.<br>"
+)
+cat(longmcq(opts4))
+```
+
+`r hide("Show Explanation")`
+The `...` argument captures any additional arguments passed by the user and can easily pass them along to another function (for example, passing graphing parameters like `col` or `pch` down to the `plot()` function).
+`r unhide()`
+
+---
+
+### Question 5: Anonymous Functions
+Which of the following is an example of an anonymous function (a function without a name)?
+
+```{r q5, results='asis'}
+opts5 <- c(
+  "`anon <- function(x) { x + 1 }`<br>",
+  answer = "`lapply(my_list, function(x) x + 1)`<br>",
+  "`function_name() <- { x + 1 }`<br>",
+  "`apply(my_list, 1, anon)`<br>"
+)
+cat(longmcq(opts5))
+```
+
+`r hide("Show Explanation")`
+Anonymous functions are defined on-the-fly directly inside another function call (like `lapply`). Because they are not assigned to a variable name, they are "anonymous."
+`r unhide()`
+
+---
+
+### Question 6: Checking for Arguments
+Which function checks if a user provided a specific argument when calling your function?
+
+```{r q6, results='asis'}
+opts6 <- c(
+  "`is.null()`<br>",
+  "`is.na()`<br>",
+  "`exists()`<br>",
+  answer = "`missing()`<br>"
+)
+cat(longmcq(opts6))
+```
+
+`r hide("Show Explanation")`
+The `missing(x)` function returns `TRUE` if the argument `x` was not provided in the function call, which is useful for setting up conditional logic based on what the user supplied.
+`r unhide()`
+
+---
+
+### Question 7: Returning Multiple Values
+How can you return multiple distinct values (like a mean and a standard deviation) from a single custom function?
+
+```{r q7, results='asis'}
+opts7 <- c(
+  "Separate the values with a comma: `return(mean, sd)`<br>",
+  answer = "Wrap the values in a list or vector: `return(list(mean = m, sd = s))`<br>",
+  "Use two return statements on separate lines.<br>",
+  "It is impossible; R functions can only return one scalar value.<br>"
+)
+cat(longmcq(opts7))
+```
+
+`r hide("Show Explanation")`
+An R function can only return a single object. To return multiple pieces of information, you must bundle them together into a single object, typically a `list` or a `vector`.
+`r unhide()`
+
+---
+
+### Question 8: The `apply()` Function Margins
+In the function `apply(my_matrix, MARGIN = 1, FUN = sum)`, what does `MARGIN = 1` indicate?
+
+```{r q8, results='asis'}
+opts8 <- c(
+  answer = "The function is applied across the rows.<br>",
+  "The function is applied across the columns.<br>",
+  "The function is applied to the first element only.<br>",
+  "The function is applied to the entire matrix as a single vector.<br>"
+)
+cat(longmcq(opts8))
+```
+
+`r hide("Show Explanation")`
+In `apply()`, `MARGIN = 1` applies the function row-by-row, while `MARGIN = 2` applies it column-by-column. 
+`r unhide()`
+
+---
+
+### Question 9: Output of `lapply()`
+What data structure does `lapply()` *always* return?
+
+```{r q9, results='asis'}
+opts9 <- c(
+  "A vector<br>",
+  "A data frame<br>",
+  "A matrix<br>",
+  answer = "A list<br>"
+)
+cat(longmcq(opts9))
+```
+
+`r hide("Show Explanation")`
+The "l" in `lapply` stands for "list." No matter what you pass into it, `lapply()` will always return a list of the same length as the input object.
+`r unhide()`
+
+---
+
+### Question 10: `sapply()` vs `lapply()`
+What is the primary difference between `sapply()` and `lapply()`?
+
+```{r q10, results='asis'}
+opts10 <- c(
+  "`sapply()` is for strings; `lapply()` is for lists.<br>",
+  answer = "`sapply()` attempts to simplify the output to a vector or matrix, whereas `lapply()` always returns a list.<br>",
+  "`sapply()` applies functions over rows, while `lapply()` applies them over columns.<br>",
+  "There is no difference; they are aliases for the exact same function.<br>"
+)
+cat(longmcq(opts10))
+```
+
+`r hide("Show Explanation")`
+The "s" in `sapply` stands for "simplify." It runs `lapply()` under the hood but then tries to squeeze the resulting list into a simpler format (like a vector) if all the returned elements are the same length.
+`r unhide()`
+
+---
+
+### Question 11: Safest Apply Function
+Which function is considered the safest alternative to `sapply()` for programming because it requires you to explicitly specify the expected output type?
+
+```{r q11, results='asis'}
+opts11 <- c(
+  "`tapply()`<br>",
+  "`mapply()`<br>",
+  answer = "`vapply()`<br>",
+  "`eapply()`<br>"
+)
+cat(longmcq(opts11))
+```
+
+`r hide("Show Explanation")`
+`vapply()` requires a `FUN.VALUE` argument where you dictate what type of output is expected (e.g., `numeric(1)`). If the function generates something unexpected, it throws a strict error, making it safer for scripts than `sapply()`.
+`r unhide()`
+
+---
+
+### Question 12: Grouped Operations
+Which apply function is best used to apply a function over subsets of a vector, split by a categorical grouping variable (factor)?
+
+```{r q12, results='asis'}
+opts12 <- c(
+  answer = "`tapply()`<br>",
+  "`mapply()`<br>",
+  "`apply()`<br>",
+  "`lapply()`<br>"
+)
+cat(longmcq(opts12))
+```
+
+`r hide("Show Explanation")`
+`tapply()` computes a measure (like mean or sum) for each distinct group or category provided in its `INDEX` argument.
+`r unhide()`
+
+---
+
+### Question 13: `lapply()` on a Data Frame
+If you run `lapply(my_dataframe, is.numeric)`, what exactly is the function applied to?
+
+```{r q13, results='asis'}
+opts13 <- c(
+  "Each individual cell in the data frame.<br>",
+  "Each row in the data frame.<br>",
+  answer = "Each column in the data frame.<br>",
+  "The entire data frame as a single matrix.<br>"
+)
+cat(longmcq(opts13))
+```
+
+`r hide("Show Explanation")`
+A data frame in R is fundamentally just a list of columns. Because `lapply()` iterates over the elements of a list, running it on a data frame applies the function column-by-column.
+`r unhide()`
+
+---
+
+### Question 14: `apply()` on a Data Frame Warning
+Why can using `apply(my_dataframe, 1, sum)` be dangerous or cause unexpected results if your data frame has mixed data types?
+
+```{r q14, results='asis'}
+opts14 <- c(
+  answer = "`apply()` coerces the data frame into a matrix first, which forces all data into a single type (usually character).<br>",
+  "`apply()` can only be used on lists, so it will throw an error immediately.<br>",
+  "`apply()` automatically deletes non-numeric columns without warning.<br>",
+  "`apply()` is perfectly safe for data frames and has no known coercion issues.<br>"
+)
+cat(longmcq(opts14))
+```
+
+`r hide("Show Explanation")`
+`apply()` is designed for arrays and matrices. If you pass a data frame containing both numbers and text, R coerces the whole matrix into characters to unify the type, meaning arithmetic functions like `sum` will fail.
+`r unhide()`
+
+---
+
+### Question 15: Multivariate Apply
+If you want to apply a function in parallel over multiple lists or vectors (e.g., summing the 1st elements together, then the 2nd elements together), which function should you use?
+
+```{r q15, results='asis'}
+opts15 <- c(
+  "`tapply()`<br>",
+  "`vapply()`<br>",
+  answer = "`mapply()`<br>",
+  "`sapply()`<br>"
+)
+cat(longmcq(opts15))
+```
+
+`r hide("Show Explanation")`
+`mapply()` stands for "multivariate apply." It takes multiple vectors/lists as arguments and applies a function to their corresponding elements simultaneously.
+`r unhide()`
+
+---
+
+### Question 16: Replicating Simulations
+Which function is a convenient wrapper for `sapply()` that is used specifically to evaluate an expression repeatedly, making it ideal for Monte Carlo simulations?
+
+```{r q16, results='asis'}
+opts16 <- c(
+  "`repeat()`<br>",
+  answer = "`replicate()`<br>",
+  "`simulate()`<br>",
+  "`do.call()`<br>"
+)
+cat(longmcq(opts16))
+```
+
+`r hide("Show Explanation")`
+`replicate(n, expr)` evaluates a given expression `n` times and simplifies the output. It is commonly used for repeating simulations or generating random datasets.
+`r unhide()`
+
+---
+
+### Question 17: Lexical Scoping
+If a variable is called inside a function but is not defined within the function's arguments or its body, where will R look for it first?
+
+```{r q17, results='asis'}
+opts17 <- c(
+  "In the global environment (the workspace).<br>",
+  answer = "In the environment where the function was defined.<br>",
+  "In the environment where the function was called.<br>",
+  "It won't look anywhere; it instantly throws an error.<br>"
+)
+cat(longmcq(opts17))
+```
+
+`r hide("Show Explanation")`
+R uses lexical scoping. It first searches inside the function. If it doesn't find the variable, it looks in the environment where the function was *created* (which is usually, but not always, the global environment).
+`r unhide()`
+
+---
+
+### Question 18: `sapply()` Edge Case
+If you use `sapply()` on a list, but the function returns vectors of *varying lengths* for each element, what does `sapply()` output?
+
+```{r q18, results='asis'}
+opts18 <- c(
+  "A matrix padded with NAs.<br>",
+  "A vector containing only the first elements.<br>",
+  "An error.<br>",
+  answer = "A list.<br>"
+)
+cat(longmcq(opts18))
+```
+
+`r hide("Show Explanation")`
+If the lengths of the outputs differ, `sapply()` cannot simplify them into a neat rectangular matrix or vector. When simplification fails, it gracefully falls back to returning a list (exactly like `lapply`).
+`r unhide()`
+
+---
+
+### Question 19: The `FUN` Argument
+When passing a function into `apply()`, how should the function name be written?
+
+```{r q19, results='asis'}
+opts19 <- c(
+  "With quotes (e.g., `FUN = \"mean\"`)<br>",
+  answer = "Without parentheses (e.g., `FUN = mean`)<br>",
+  "With parentheses (e.g., `FUN = mean()`)<br>",
+  "With an assignment arrow (e.g., `FUN <- mean`)<br>"
+)
+cat(longmcq(opts19))
+```
+
+`r hide("Show Explanation")`
+You pass the function object itself by name, without parentheses. Adding parentheses (like `mean()`) evaluates the function immediately rather than passing it to `apply()`.
+`r unhide()`
+
+---
+
+### Question 20: Executing a Function Call from a List
+If you have a function and a list of arguments, which function lets you construct and execute the function call? (e.g., running `rbind()` on a list of data frames).
+
+```{r q20, results='asis'}
+opts20 <- c(
+  answer = "`do.call()`<br>",
+  "`mapply()`<br>",
+  "`invoke()`<br>",
+  "`apply.list()`<br>"
+)
+cat(longmcq(opts20))
+```
+
+`r hide("Show Explanation")`
+`do.call(what, args)` takes a function name (`what`) and a list of arguments (`args`), and executes the function as if the list elements were passed individually. E.g., `do.call(rbind, list_of_dfs)` row-binds a list of data frames together.
+`r unhide()`
