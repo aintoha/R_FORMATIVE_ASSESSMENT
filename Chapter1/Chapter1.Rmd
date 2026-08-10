@@ -1,0 +1,39 @@
+---
+title: "Introduction to R and RStudio"
+output: webexercises::webexercises_default
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+library(webexercises)
+```
+
+
+```{r, echo = FALSE, results='asis'}
+# Uncomment to change widget colours:
+#style_widgets(incorrect = "goldenrod", correct = "purple")
+```
+
+
+## Longer MCQs (`longmcq()`)
+
+When your answers are very long, sometimes a drop-down select box gets formatted oddly. You can use `longmcq()` to deal with this. Since the answers are long, It's probably best to set up the options inside an R chunk with `echo=FALSE`. 
+
+### Question 1: R Assignment Operators
+Which of the following statements correctly describes the primary ways to assign variables in R?
+
+```{r q1, echo=FALSE}
+opts1 <- c(
+  "Variables can only be assigned using the `=` operator.",
+  "Variables can only be assigned using the `<-` operator.",
+  answer = "Variables can be assigned using either the `<-` or the `=` operator.",
+  "Variables are assigned using `->` for left-to-right assignment only."
+)
+```
+
+`r longmcq(opts1)`
+
+`r hide("Show Explanation")`
+There are two primary ways to assign variables in R, using `<-` or `=`. While `->` exists for right-to-left assignment, `<-` and `=` are the standard primary assignment methods.
+`r unhide()`
+
