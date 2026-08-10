@@ -1,0 +1,546 @@
+---
+title: "R Data Structures and Operations Quiz"
+output: webexercises::webexercises_default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+library(webexercises)
+```
+---
+
+## Part 1: Vectors
+
+### Question 1: Atomic Coercion
+If you run `my_vec <- c(1, "A", TRUE)`, what will be the data type of the resulting vector?
+
+```{r q1, results='asis'}
+opts1 <- c(
+  "A list containing a numeric, a character, and a logical value.",
+  "An error, because vectors cannot contain mixed types.",
+  answer = "A character vector: `\"1\"`, `\"A\"`, `\"TRUE\"`.",
+  "A numeric vector with NAs introduced by coercion."
+)
+cat(longmcq(opts1))
+```
+
+`r hide("Show Explanation")`
+Vectors must be "atomic" (all elements of the same type). R forces (coerces) them to the most flexible type. The hierarchy is Logical $\rightarrow$ Integer $\rightarrow$ Numeric $\rightarrow$ Character.
+`r unhide()`
+
+### Question 2: Vector Recycling
+What happens when you add two vectors of different lengths, such as `c(1, 2, 3) + c(10, 20)`?
+
+```{r q2, results='asis'}
+opts2 <- c(
+  "R throws a fatal error and stops execution.",
+  "R adds the first two elements and drops the third: `11, 22`.",
+  answer = "R recycles the shorter vector and issues a warning: `11, 22, 13`.",
+  "R pads the shorter vector with zero: `11, 22, 3`."
+)
+cat(longmcq(opts2))
+```
+
+`r hide("Show Explanation")`
+R uses "recycling" to repeat the shorter vector until it matches the length of the longer one. If the longer length isn't a multiple of the shorter one, it completes the operation but gives a warning.
+`r unhide()`
+
+### Question 3: Naming Vector Elements
+Which function allows you to assign or retrieve labels for individual elements inside a vector?
+
+```{r q3, results='asis'}
+opts3 <- c(
+  answer = "`names()`",
+  "`labels()`",
+  "`colnames()`",
+  "`tags()`"
+)
+cat(longmcq(opts3))
+```
+
+`r hide("Show Explanation")`
+The `names()` function is used for vectors and lists. (e.g., `names(my_vec) <- c("a", "b")`). `colnames()` is used for matrices and data frames.
+`r unhide()`
+
+---
+
+## Part 2: Matrices & Arrays
+
+### Question 4: Matrix Creation
+By default, how does the `matrix()` function fill its data into rows and columns?
+
+```{r q4, results='asis'}
+opts4 <- c(
+  "Row by row (horizontally).",
+  answer = "Column by column (vertically).",
+  "Randomly.",
+  "Diagonally."
+)
+cat(longmcq(opts4))
+```
+
+`r hide("Show Explanation")`
+By default, R fills matrices down the columns. To fill across the rows instead, you must explicitly set `byrow = TRUE`.
+`r unhide()`
+
+### Question 5: Matrix Properties
+Which of the following is true about a matrix in R?
+
+```{r q5, results='asis'}
+opts5 <- c(
+  answer = "It is a 2-dimensional structure that can only hold a single data type.",
+  "It is a 2-dimensional structure that can hold mixed data types.",
+  "It is a 1-dimensional structure used for linear algebra.",
+  "It is simply a list of vectors."
+)
+cat(longmcq(opts5))
+```
+
+`r hide("Show Explanation")`
+A matrix is essentially an atomic vector with a "dimensions" attribute (`dim`) attached to it. Because it is atomic, all data inside it must be of the exact same type.
+`r unhide()`
+
+### Question 6: Array Dimensions
+What does the code `my_array <- array(1:24, dim = c(3, 4, 2))` create?
+
+```{r q6, results='asis'}
+opts6 <- c(
+  "A 3D array with 2 rows, 4 columns, and 3 layers.",
+  answer = "A 3D array with 3 rows, 4 columns, and 2 layers.",
+  "A matrix with 3 rows and 8 columns.",
+  "A list of 3 matrices, each 4x2."
+)
+cat(longmcq(opts6))
+```
+
+`r hide("Show Explanation")`
+The `dim` argument for an array is ordered as `c(rows, columns, layers/tables)`. So `c(3, 4, 2)` means 3 rows, 4 columns, split across 2 separate "layers" or "slices".
+`r unhide()`
+
+### Question 7: Matrix Transposition
+Which function is used to transpose a matrix (swap its rows and columns)?
+
+```{r q7, results='asis'}
+opts7 <- c(
+  "`transpose()`",
+  "`swap()`",
+  "`flip()`",
+  answer = "`t()`"
+)
+cat(longmcq(opts7))
+```
+
+`r hide("Show Explanation")`
+The `t()` function returns the transpose of a matrix or a data frame.
+`r unhide()`
+
+---
+
+## Part 3: Factors
+
+### Question 8: Purpose of Factors
+What is the primary purpose of the `factor` data structure in R?
+
+```{r q8, results='asis'}
+opts8 <- c(
+  "To handle complex mathematical factorials.",
+  "To store highly compressed textual data.",
+  answer = "To store categorical data and assign distinct 'levels' to groups.",
+  "To convert matrices into 1D vectors."
+)
+cat(longmcq(opts8))
+```
+
+`r hide("Show Explanation")`
+Factors are used for categorical variables (like "Small", "Medium", "Large", or "Male", "Female"). R stores them as integers under the hood, mapped to character labels called "levels".
+`r unhide()`
+
+### Question 9: Ordered Factors
+How do you tell R that a factor has a specific, meaningful order (e.g., Low < Medium < High)?
+
+```{r q9, results='asis'}
+opts9 <- c(
+  "Use `sort(factor_data)`.",
+  answer = "Use the `ordered = TRUE` argument inside the `factor()` function.",
+  "Use the `levels()` function to automatically sort them.",
+  "Factors are always ordered alphabetically by default; you cannot change it."
+)
+cat(longmcq(opts9))
+```
+
+`r hide("Show Explanation")`
+Setting `ordered = TRUE` makes it an ordinal categorical variable, which is highly important for statistical modeling and plotting.
+`r unhide()`
+
+### Question 10: Converting Factors to Numeric
+If `f <- factor(c("10", "20", "30"))`, what is the safest way to convert it back to actual numeric values?
+
+```{r q10, results='asis'}
+opts10 <- c(
+  "`as.numeric(f)`",
+  answer = "`as.numeric(as.character(f))` or `as.numeric(levels(f))[f]`",
+  "`numeric(f)`",
+  "`unfactor(f)`"
+)
+cat(longmcq(opts10))
+```
+
+`r hide("Show Explanation")`
+If you just use `as.numeric(f)`, R returns the underlying integer codes (1, 2, 3) instead of the text values (10, 20, 30). You must convert it to a character first.
+`r unhide()`
+
+---
+
+## Part 4: Lists & Data Frames
+
+### Question 11: The Nature of Lists
+Which statement is TRUE regarding lists in R?
+
+```{r q11, results='asis'}
+opts11 <- c(
+  "Lists can only contain one data type.",
+  "Lists are exactly the same as data frames.",
+  answer = "Lists can contain elements of different types, lengths, and even other lists.",
+  "Lists are always two-dimensional."
+)
+cat(longmcq(opts11))
+```
+
+`r hide("Show Explanation")`
+Lists are the most flexible data structure in R. They are 1-dimensional and heterogeneous, meaning a single list can hold a vector, a matrix, a function, and another list all at once.
+`r unhide()`
+
+### Question 12: Single vs Double Brackets
+If `my_list` contains a vector named `scores` at the first position, what is the difference between `my_list[1]` and `my_list[[1]]`?
+
+```{r q12, results='asis'}
+opts12 <- c(
+  "They are completely identical.",
+  answer = "`[1]` returns a list of length 1, while `[[1]]` extracts the actual vector of scores out of the list.",
+  "`[1]` extracts the vector, while `[[1]]` returns a list.",
+  "`[[1]]` only works for data frames, not lists."
+)
+cat(longmcq(opts12))
+```
+
+`r hide("Show Explanation")`
+Think of a list as a train with cargo cars. Single brackets `[]` give you a train car (still a list). Double brackets `[[]]` open the door and give you the cargo inside.
+`r unhide()`
+
+### Question 13: Data Frame Constraints
+Which of the following is a strict requirement for creating a valid Data Frame?
+
+```{r q13, results='asis'}
+opts13 <- c(
+  "All columns must be of the same data type.",
+  answer = "All columns must have the exact same number of rows (length).",
+  "It cannot contain factor variables.",
+  "Row names must be strictly numeric."
+)
+cat(longmcq(opts13))
+```
+
+`r hide("Show Explanation")`
+A data frame is technically a list of vectors. For it to form a neat rectangle (table), every vector (column) must be exactly the same length.
+`r unhide()`
+
+### Question 14: Adding a Column
+Which syntax is commonly used to add a brand new column named `Total` to an existing data frame `df`?
+
+```{r q14, results='asis'}
+opts14 <- c(
+  answer = "`df$Total <- c(...)`",
+  "`df[Total] <- c(...)`",
+  "`add_col(df, Total)`",
+  "`df %>% Total(...)`"
+)
+cat(longmcq(opts14))
+```
+
+`r hide("Show Explanation")`
+The `$` operator is the easiest way to extract or create columns. Assigning values to a `$` name that doesn't exist yet will automatically create it.
+`r unhide()`
+
+### Question 15: Examining Structure
+Which function gives you a compact summary of a data frame's internal structure, showing column names, types, and the first few observations?
+
+```{r q15, results='asis'}
+opts15 <- c(
+  "`summary()`",
+  "`head()`",
+  answer = "`str()`",
+  "`class()`"
+)
+cat(longmcq(opts15))
+```
+
+`r hide("Show Explanation")`
+`str()` stands for "structure". It is one of the most useful diagnostic functions in R for checking the types of data stored in your data frame.
+`r unhide()`
+
+---
+
+## Part 5: Indexing & Conditional Selection
+
+### Question 16: Negative Indexing
+What does `my_vector[-3]` do?
+
+```{r q16, results='asis'}
+opts16 <- c(
+  "It returns the 3rd element from the end of the vector.",
+  answer = "It returns the entire vector except for the 3rd element.",
+  "It reverses the vector.",
+  "It subtracts 3 from every element in the vector."
+)
+cat(longmcq(opts16))
+```
+
+`r hide("Show Explanation")`
+In R, placing a minus sign before an index tells R to drop or exclude that specific index and return everything else.
+`r unhide()`
+
+### Question 17: Matrix Indexing
+How do you extract the entire 2nd column of a matrix named `mat`?
+
+```{r q17, results='asis'}
+opts17 <- c(
+  "`mat[2, ]`",
+  answer = "`mat[, 2]`",
+  "`mat[2]`",
+  "`mat[[2]]`"
+)
+cat(longmcq(opts17))
+```
+
+`r hide("Show Explanation")`
+Matrix indexing uses `[rows, columns]`. Leaving the row slot blank (before the comma) tells R to return "all rows" for column 2.
+`r unhide()`
+
+### Question 18: Out of Bounds
+If `x <- c(10, 20, 30)`, what does R return if you ask for `x[5]`?
+
+```{r q18, results='asis'}
+opts18 <- c(
+  "An 'Index out of bounds' error.",
+  "0",
+  "NULL",
+  answer = "NA"
+)
+cat(longmcq(opts18))
+```
+
+`r hide("Show Explanation")`
+Unlike Python which crashes with an index error, R silently returns `NA` (Not Available) when you try to access an index that doesn't exist.
+`r unhide()`
+
+### Question 19: Logical Vectors
+If `v <- c(1, 5, 10)`, what is the result of the expression `v > 4`?
+
+```{r q19, results='asis'}
+opts19 <- c(
+  "It filters the vector and returns `5, 10`.",
+  answer = "It returns a logical vector: `FALSE, TRUE, TRUE`.",
+  "It returns the indices: `2, 3`.",
+  "It returns `TRUE`."
+)
+cat(longmcq(opts19))
+```
+
+`r hide("Show Explanation")`
+A logical condition applied to a vector is evaluated element-by-element, returning a boolean vector of the same length. You can use this logical vector to subset the data (e.g., `v[v > 4]`).
+`r unhide()`
+
+### Question 20: The `which()` Function
+What does the `which()` function return when applied to a logical condition?
+
+```{r q20, results='asis'}
+opts20 <- c(
+  "The actual data values that meet the condition.",
+  "A boolean vector.",
+  answer = "The numeric index positions of the `TRUE` values.",
+  "A subset data frame."
+)
+cat(longmcq(opts20))
+```
+
+`r hide("Show Explanation")`
+`which(v > 4)` would return `c(2, 3)` because the 2nd and 3rd elements satisfy the condition.
+`r unhide()`
+
+### Question 21: AND vs OR
+Which operator is used to evaluate if *either* condition A OR condition B is true element-wise in a vector?
+
+```{r q21, results='asis'}
+opts21 <- c(
+  "`&`",
+  "`&&`",
+  answer = "`|`",
+  "`||`"
+)
+cat(longmcq(opts21))
+```
+
+`r hide("Show Explanation")`
+The single vertical bar `|` is the vectorized OR operator. (The single `&` is the vectorized AND operator). The double `||` and `&&` only evaluate the very first element, usually used in `if()` statements.
+`r unhide()`
+
+### Question 22: Using `subset()`
+What is the main advantage of using the `subset(df, condition)` function over standard bracket `df[condition, ]` subsetting?
+
+```{r q22, results='asis'}
+opts22 <- c(
+  "It is much faster for large datasets.",
+  answer = "It saves typing the data frame name repeatedly and automatically drops `NA` values in the condition.",
+  "It can be used on lists, whereas brackets cannot.",
+  "It modifies the data frame in place permanently."
+)
+cat(longmcq(opts22))
+```
+
+`r hide("Show Explanation")`
+Instead of typing `df[df$Age > 20 & !is.na(df$Age), ]`, you can just type `subset(df, Age > 20)`. It is cleaner and handles missing values nicely.
+`r unhide()`
+
+### Question 23: The `%in%` Operator
+What is the `%in%` operator used for?
+
+```{r q23, results='asis'}
+opts23 <- c(
+  "To check if a package is installed.",
+  "To concatenate two strings together.",
+  answer = "To check if the elements of one vector match any of the elements in another vector.",
+  "To pipe data from one function to another."
+)
+cat(longmcq(opts23))
+```
+
+`r hide("Show Explanation")`
+`x %in% y` returns a logical vector the same length as `x`, marking `TRUE` if that element is found anywhere inside `y`.
+`r unhide()`
+
+---
+
+## Part 6: Missing Values (NA)
+
+### Question 24: Testing for NA
+Why does `x == NA` fail to properly identify missing values?
+
+```{r q24, results='asis'}
+opts24 <- c(
+  answer = "Because NA represents an unknown value, so checking if an unknown equals an unknown results in NA, not TRUE/FALSE.",
+  "Because NA is a character string and requires quotes (`\"NA\"`).",
+  "Because R uses `NULL` instead of `NA`.",
+  "Because the syntax should be `x = NA`."
+)
+cat(longmcq(opts24))
+```
+
+`r hide("Show Explanation")`
+You can never use equality operators with `NA`. You must use the dedicated function `is.na(x)` to test for missing values.
+`r unhide()`
+
+### Question 25: Calculating with NAs
+If `x <- c(10, 20, NA, 40)`, what does `mean(x)` return?
+
+```{r q25, results='asis'}
+opts25 <- c(
+  "23.33",
+  "17.5",
+  "An error.",
+  answer = "NA"
+)
+cat(longmcq(opts25))
+```
+
+`r hide("Show Explanation")`
+Most mathematical functions in R will return `NA` if even one `NA` is present in the data. You must add the argument `na.rm = TRUE` to strip them out before calculation.
+`r unhide()`
+
+### Question 26: Complete Cases
+Which function evaluates a data frame and returns a logical vector marking `TRUE` only for rows that have absolutely zero missing values?
+
+```{r q26, results='asis'}
+opts26 <- c(
+  answer = "`complete.cases()`",
+  "`na.omit()`",
+  "`is.complete()`",
+  "`drop_na()`"
+)
+cat(longmcq(opts26))
+```
+
+`r hide("Show Explanation")`
+`complete.cases(df)` returns a boolean vector you can use to subset the data frame (e.g., `df[complete.cases(df), ]`). Alternatively, `na.omit(df)` does the subsetting automatically.
+`r unhide()`
+
+---
+
+## Part 7: Grouped Data 
+
+### Question 27: The `tapply()` Function
+What is `tapply()` used for?
+
+```{r q27, results='asis'}
+opts27 <- c(
+  "Transposing a data frame.",
+  answer = "Applying a function to subsets of a vector, split by a categorical grouping variable.",
+  "Testing for missing values across rows.",
+  "Tabulating frequencies of text strings."
+)
+cat(longmcq(opts27))
+```
+
+`r hide("Show Explanation")`
+`tapply(X, INDEX, FUN)` takes a vector `X`, splits it into groups based on the factor `INDEX`, and applies `FUN` (like `mean`) to each group.
+`r unhide()`
+
+### Question 28: Splitting Data
+Which function breaks a data frame into a *list* of smaller data frames based on a grouping variable?
+
+```{r q28, results='asis'}
+opts28 <- c(
+  answer = "`split()`",
+  "`group_by()`",
+  "`divide()`",
+  "`chunk()`"
+)
+cat(longmcq(opts28))
+```
+
+`r hide("Show Explanation")`
+`split(df, df$category)` returns a list where each element is a subset of the original data frame for a specific category level.
+`r unhide()`
+
+### Question 29: The `aggregate()` Function
+How does the `aggregate()` function handle groupings compared to `tapply()`?
+
+```{r q29, results='asis'}
+opts29 <- c(
+  "It can only calculate sums, not means or standard deviations.",
+  answer = "It natively accepts a formula interface (e.g., `y ~ group`) and returns a neat data frame instead of an array.",
+  "It is strictly used for time-series data.",
+  "It modifies the original dataset by adding summary rows at the bottom."
+)
+cat(longmcq(opts29))
+```
+
+`r hide("Show Explanation")`
+`aggregate(value ~ category, data = df, FUN = mean)` is highly preferred in base R because its formula syntax is easy to read, and it outputs a clean data frame.
+`r unhide()`
+
+### Question 30: By Function
+The `by()` function is an object-oriented wrapper for `tapply()`. What is it most commonly used to do?
+
+```{r q30, results='asis'}
+opts30 <- c(
+  "Sort a data frame by multiple columns.",
+  answer = "Apply a function to entire data frames split by row factors.",
+  "Merge two datasets by a common ID column.",
+  "Generate sequential numbers by a specific step size."
+)
+cat(longmcq(opts30))
+```
+
+`r hide("Show Explanation")`
+While `tapply()` works on individual vectors, `by(data, INDICES, FUN)` splits an entire data frame into subsets and allows you to apply a function (like a linear model `lm()`) to each subset.
+`r unhide()`
