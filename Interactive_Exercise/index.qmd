@@ -1,0 +1,16 @@
+---
+title: "Interactive R Practice"
+format: 
+  live-html:
+    output-file: "index.html"
+engine: knitr
+---
+
+{{< include ../_extensions/r-wasm/live/_knitr.qmd >}}
+
+## Interactive R Coding
+
+```{webr}
+# Students can run code here
+mean(c(10, 20, 30))
+```

@@ -6,4 +6,5 @@ Please select a quiz below to test your knowledge:
 * [Chapter 2: Data Types](Chapter2/Chapter2.html) 
 * [Chapter 3: Functions](Chapter3/Chapter3.html)
 * [Chapter 4: Probability](Chapter4/Chapter4.html)
+* [Chapter 5: Interactive R Exercises](Interactive_Exercise/index.html)
 ```

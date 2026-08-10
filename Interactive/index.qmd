@@ -1,0 +1,17 @@
+---
+title: "Interactive R Practice"
+format: html
+engine: knitr
+filters:
+  - webr
+---
+
+## Welcome
+
+This is a test page to verify HTML generation.
+
+```{webr-r}
+# Students can edit and run this code!
+data <- c(10, 20, 30, 40, 50)
+mean(data)
+```
