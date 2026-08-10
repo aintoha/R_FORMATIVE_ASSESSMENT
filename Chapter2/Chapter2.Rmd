@@ -544,3 +544,196 @@ cat(longmcq(opts30))
 `r hide("Show Explanation")`
 While `tapply()` works on individual vectors, `by(data, INDICES, FUN)` splits an entire data frame into subsets and allows you to apply a function (like a linear model `lm()`) to each subset.
 `r unhide()`
+
+---
+
+### Question 31: Vector Indexing Out-of-Bounds
+What value does R return if you attempt to access an index position in a vector that does not exist (e.g., `x[10]` on a vector of length 5)?
+
+```{r q31, echo = FALSE}
+opts31 <- c(
+  answer = "`NA`<br>",
+  "`NULL`<br>",
+  "An error message<br>",
+  "`0`<br>"
+)
+```
+
+`r longmcq(opts31)`
+
+---
+
+### Question 32: Checking Data Types
+Which function should you use to check the basic data type or internal structure of an R object (e.g., whether a variable is `numeric`, `character`, or `logical`)?
+
+```{r q32, echo = FALSE}
+opts32 <- c(
+  answer = "`class()`<br>",
+  "`type()`<br>",
+  "`datatype()`<br>",
+  "`kind()`<br>"
+)
+```
+
+`r longmcq(opts32)`
+
+---
+
+---
+### Question 31: Combining Vectors into a Matrix
+Which function binds a set of equal-length vectors together as columns to form a matrix?
+
+```{r 31, echo = FALSE}
+opts31<- c(
+  answer = "`cbind()`<br>",
+  "`rbind()`<br>",
+  "`bind_cols()`<br>",
+  "`concat()`<br>"
+)
+```
+
+`r longmcq(opts31)`
+
+---
+
+### Question 32: Removing Missing Values
+When calculating the mean of a vector that contains `NA` values, which argument must be set to `TRUE` to ignore the missing values?
+
+```{r 32, echo = FALSE}
+opts32 <- c(
+  answer = "`na.rm`<br>",
+  "`remove.na`<br>",
+  "`ignore.na`<br>",
+  "`na.omit`<br>"
+)
+```
+
+`r longmcq(opts32)`
+
+---
+
+### Question 33: List Element Extraction
+If you have a list named `my_list`, which syntax correctly extracts the underlying object stored in the second position rather than returning a sub-list?
+
+```{r 33, echo = FALSE}
+opts33 <- c(
+  answer = "`my_list[[2]]`<br>",
+  "`my_list[2]`<br>",
+  "`my_list(2)`<br>",
+  "`my_list$2`<br>"
+)
+```
+
+`r longmcq(opts33)`
+
+---
+
+### Question 34: Identifying Object Names
+Which function displays the names of all objects (variables, vectors, functions) currently loaded in your active R workspace?
+
+```{r 34, echo = FALSE}
+opts34 <- c(
+  answer = "`ls()`<br>",
+  "`objects.list()`<br>",
+  "`dir()`<br>",
+  "`show()`<br>"
+)
+```
+
+`r longmcq(opts34)`
+
+---
+
+### Question 35: Subsetting Vectors with Logic
+Given the vector `x <- c(10, 25, 5, 30)`, which command returns only the values that are strictly greater than 15?
+
+```{r 35, echo = FALSE}
+opts35 <- c(
+  answer = "`x[x > 15]`<br>",
+  "`x(x > 15)`<br>",
+  "`subset(x > 15)`<br>",
+  "`x[[x > 15]]`<br>"
+)
+```
+
+`r longmcq(opts35)`
+
+---
+
+### Question 36: Logical Operators in Subsetting
+Which logical operator should you use inside vector brackets `[]` to select elements that satisfy both conditions simultaneously (e.g., values greater than 5 and less than 20)?
+
+```{r 36, echo = FALSE}
+opts36 <- c(
+  answer = "`&`<br>",
+  "`&&`<br>",
+  "`AND`<br>",
+  "`|`<br>"
+)
+```
+
+`r longmcq(opts36)`
+---
+
+### Question 37: Filtering Data Frame Rows by Condition
+Given a data frame df with a numeric column named age, which command filters the data frame to keep only rows where `age` is 18 or older?
+
+```{r 37, echo = FALSE}
+opts37 <- c(
+  answer = "`df[df$age >= 18, ]`<br>",
+  "`df[df$age >= 18]`<br>",
+  "`df[ , df$age >= 18]`<br>",
+  "`df[[df$age >= 18]]`<br>"
+)
+```
+
+`r longmcq(opts37)`
+---
+
+### Question 38: Using the `subset()` Function
+What is the main advantage of using `subset(df, age >= 18)` over bracket indexing `df[df$age >= 18, ]` when working with data frames?
+
+```{r 38, echo = FALSE}
+opts38 <- c(
+  answer = "It automatically excludes rows where the condition evaluates to `NA`<br>",
+  "It is faster and uses less computer memory<br>",
+  "It works on matrices, whereas bracket indexing does not<br>",
+  "It permanently modifies the original data frame<br>"
+)
+```
+
+`r longmcq(opts38)`
+
+---
+
+### Question 39: Negative Indexing in Vectors
+What does the command `temperature[-1]` do when applied to a numeric vector named `temperature`?
+
+```{r 39, echo = FALSE}
+opts39 <- c(
+  answer = "It returns all elements of the vector except the first one<br>",
+  "It subtracts 1 from the first element of the vector<br>",
+  "It returns only the last element of the vector<br>",
+  "It replaces the first element with `NA`<br>"
+)
+```
+
+`r longmcq(opts39)`
+
+---
+
+### Question 40:Conditional Subsetting on List Named Elements
+If a list `my_list` contains named elements `c("A", "B", "C")`, which syntax safely extracts the element named "B" by name?
+
+```{r 40, echo = FALSE}
+opts40 <- c(
+  answer = "`my_list[[\"B\"]]`<br>",
+  "`my_list[\"B\"]`<br>",
+  "`my_list[B]`<br>",
+  "`my_list(B)`<br>"
+)
+```
+
+`r longmcq(opts40)`
+
+---
