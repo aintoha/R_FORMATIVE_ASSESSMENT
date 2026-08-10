@@ -9,7 +9,7 @@ library(webexercises)
 ```
 
 
-```{r, echo = FALSE, results='asis'}
+```{r, echo = FALSE}
 # Uncomment to change widget colours:
 #style_widgets(incorrect = "goldenrod", correct = "purple")
 ```
@@ -36,4 +36,387 @@ opts1 <- c(
 `r hide("Show Explanation")`
 There are two primary ways to assign variables in R, using `<-` or `=`. While `->` exists for right-to-left assignment, `<-` and `=` are the standard primary assignment methods.
 `r unhide()`
+
+---
+
+### Question 2: Comments in R
+How do you write a single-line comment in an R script?
+```{r q2, echo=FALSE}
+opts2 <- c(
+  "`// This is a comment`",
+  "`/* This is a comment */`",
+  answer = "`# This is a comment`",
+  "`-- This is a comment`"
+)
+```
+
+`r longmcq(opts2)`
+
+### Question 3: Comments in R
+If you create a variable named `myvar <- 10` and then call `MyVar`, what will happen?
+
+```{r q3, echo=FALSE}
+opts3 <- c(
+  "It will return 10 because R is case-insensitive.",
+  answer = "It will throw an 'object not found' error because R is case-sensitive.",
+  "It will prompt you to correct the spelling.",
+  "R will automatically convert `MyVar` to lowercase `myvar`."
+)
+```
+
+`r longmcq(opts3)`
+
+
+### Question 4: Understanding R Objects
+What is the abstract term for anything that can be assigned to a variable in R, and which of these is not listed as a general object type in the primary enumeration?
+
+```{r q4, echo=FALSE}
+opts4 <- c(
+  "An expression; functions are not listed.",
+  "A function; integers are not listed.",
+  answer = "An object; matrices are not listed as a general type under core object types.",
+  "A variable; vectors are not listed."
+)
+```
+
+`r longmcq(opts4)`
+
+`r hide("Show Explanation")`
+"Object" is the abstract term for anything assigned to a variable. Core enumerated object types include integers, vectors, and lists. While matrices are important data structures, they are built on vectors rather than listed as a standalone core type initially.
+`r unhide()`
+
+---
+
+### Question 5: Data Types in R
+Which of the following combinations correctly lists four main types of data in R and their corresponding examples?
+
+```{r q5, echo=FALSE}
+opts5 <- c(
+  "Numerical (1000L), Character (TRUE), Integer (\"Table\"), Boolean (1)",
+  answer = "Character (\"Table\"), Integer (1000L), Boolean (TRUE), Numerical (1)",
+  "Numerical (\"Table\"), Character (1), Integer (TRUE), Boolean (1000L)",
+  "Integer (1), Boolean (\"Table\"), Numerical (TRUE), Character (1000L)"
+)
+```
+
+`r longmcq(opts5)`
+
+`r hide("Show Explanation")`
+In R:
+* `"Table"` is a **Character** string.
+* `1000L` (with the `L` suffix) is an **Integer**.
+* `TRUE` is a **Boolean / Logical**.
+* `1` is **Numeric**.
+`r unhide()`
+
+---
+
+### Question 6: Characteristics of Vectors
+Which statement accurately describes a crucial characteristic of vectors in R, particularly concerning arithmetic operations?
+
+```{r q6, echo=FALSE}
+opts6 <- c(
+  "Vectors must always contain data of mixed types.",
+  answer = "For calculations with vectors to be straightforward, they should generally be of the same length.",
+  "Character vectors use acute accent keys for text strings.",
+  "Data vectors are exclusively used for integers."
+)
+```
+
+`r longmcq(opts6)`
+
+`r hide("Show Explanation")`
+Vector calculations operate element-by-element, so vectors should generally be of equal length to avoid unexpected recycling behavior.
+`r unhide()`
+
+---
+
+### Question 7: Functions and Arguments
+In an R function call like `log(x)`, what is the difference between `x` when it's provided in the call versus its definition within the function's structure?
+
+```{r q7, echo=FALSE}
+opts7 <- c(
+  "x in the call is a 'formal argument', while in the function definition it's an 'actual argument'.",
+  "Both are always 'formal arguments'.",
+  answer = "x as provided in log(x) is an 'actual argument', connected to a 'formal argument' defined within the function.",
+  "x is neither an actual nor formal argument; it's always an 'object'."
+)
+```
+
+`r longmcq(opts7)`
+
+`r hide("Show Explanation")`
+* **Actual arguments** are the specific values/variables passed during a function call.
+* **Formal arguments** are the parameters declared in the function's definition.
+`r unhide()`
+
+---
+
+### Question 8: The Purpose of Factors
+Why are 'factors' considered useful in R, particularly in statistical data analysis?
+
+```{r q8, echo=FALSE}
+opts8 <- c(
+  "They allow vectors to contain mixed data types.",
+  "They are primarily used for mathematical matrix operations.",
+  answer = "They represent categorical variables, which is useful for indicating subdivisions of data and have a set of levels.",
+  "They are a more efficient way to store numerical sequences."
+)
+```
+
+`r longmcq(opts8)`
+
+`r hide("Show Explanation")`
+Factors store categorical variables (like experimental groups or levels of treatment) and track predefined levels.
+`r unhide()`
+
+---
+
+### Question 9: Differentiating Lists and Vectors
+What is the fundamental difference between a 'list' and a 'vector' in R regarding the types of objects they can contain?
+
+```{r q9, echo=FALSE}
+opts9 <- c(
+  "Vectors can hold objects of different types, while lists can only hold objects of the same type.",
+  answer = "Lists can hold collections of objects of different types, whereas a vector must contain elements of the same type.",
+  "Both lists and vectors can hold any type of object without restriction.",
+  "Lists are only for numeric data, and vectors are for character data."
+)
+```
+
+`r longmcq(opts9)`
+
+`r hide("Show Explanation")`
+Atomic vectors require all elements to be of the exact same data type (homogenous). Lists are generic vectors that can store elements of varying types and shapes (heterogeneous).
+`r unhide()`
+
+---
+
+### Question 10: Data Frames Structure
+What is a 'data frame' in R, and what is its crucial characteristic regarding the length of its constituent components?
+
+```{r q10, echo=FALSE}
+opts10 <- c(
+  "A data frame is a single vector of mixed data types; its components can have varying lengths.",
+  "A data frame is a matrix that can only store numeric values.",
+  answer = "A data frame is a list of vectors and/or factors of the same length, where data in the same position come from the same experimental unit.",
+  "A data frame is an arbitrary collection of R objects without any length constraints."
+)
+```
+
+`r longmcq(opts10)`
+
+`r hide("Show Explanation")`
+A data frame is structured like a table where each column is a vector or factor. All columns must have identical lengths (rows) for the data frame to be valid.
+`r unhide()`
+
+---
+
+### Question 11: Printing Output: `print()` vs. `cat()`
+When displaying a character vector in R, what is the primary difference between using `print()` and `cat()`?
+
+```{r q11, echo=FALSE}
+opts11 <- c(
+  "print() displays only the first element, while cat() displays all elements.",
+  "cat() always adds a newline character after each element, while print() does not.",
+  answer = "print() includes quotation marks around character strings, whereas cat() displays them without quotation marks.",
+  "print() is used for numeric data, and cat() is for character data."
+)
+```
+
+`r longmcq(opts11)`
+
+`r hide("Show Explanation")`
+`print()` outputs formal string representations including quotes (e.g., `"John"`), whereas `cat()` concatenates and prints raw unquoted text (e.g., `John`).
+`r unhide()`
+
+---
+
+### Question 12: Handling Missing Values (`NA`)
+If you perform an arithmetic operation in R like `1 + NA`, what will be the typical result, and why?
+
+```{r q12, echo=FALSE}
+opts12 <- c(
+  "The result will be 1, because NA is treated as 0 in arithmetic operations.",
+  "The operation will produce an error, as NA cannot be used in arithmetic.",
+  answer = "The result will be NA, because R treats NA as missing information and does not assume it is 0.",
+  "The result will be NaN (Not a Number), indicating an undefined operation."
+)
+```
+
+`r longmcq(opts12)`
+
+`r hide("Show Explanation")`
+R propagates `NA` values throughout calculations because operating on unknown data yields an unknown (`NA`) result.
+`r unhide()`
+
+---
+
+## Part 2: Application Questions
+
+### Question 13: Vector Creation and Naming
+Which of the following R code snippets correctly creates vectors for temperatures and days, assigns the days as names to the temperatures, and prints the result?
+
+```{r q13, echo=FALSE}
+opts13 <- c(
+  "A)<br><pre><code>temperature_readings = c(30.0, 28.0, 27.0, 28.5, 30.5, 29.0, 29.5)\ndays_of_week = c(\"Monday\", \"Tuesday\", \"Wednesday\", \"Thursday\", \"Friday\", \"Saturday\", \"Sunday\")\nlabels(temperature_readings) = days_of_week\ncat(temperature_readings)</code></pre>",
+  answer = "B)<br><pre><code>temperature_readings <- c(30.0, 28.0, 27.0, 28.5, 30.5, 29.0, 29.5)\ndays_of_week <- c(\"Monday\", \"Tuesday\", \"Wednesday\", \"Thursday\", \"Friday\", \"Saturday\", \"Sunday\")\nnames(temperature_readings) <- days_of_week\nprint(temperature_readings)</code></pre>",
+  "C)<br><pre><code>temp_readings <- list(30.0, 28.0, 27.0, 28.5, 30.5, 29.0, 29.5)\ndays <- c(\"Mon\", \"Tue\", \"Wed\", \"Thu\", \"Fri\", \"Sat\", \"Sun\")\nnames(temp_readings) <- days\nprint(temp_readings)</code></pre>",
+  "D)<br><pre><code>temperature_readings <- c(30.0, 28.0, 27.0, 28.5, 30.5, 29.0, 29.5)\ndays_of_week <- c(\"Monday\", \"Tuesday\", \"Wednesday\", \"Thursday\", \"Friday\", \"Saturday\", \"Sunday\")\ntemperature_readings$names <- days_of_week\nprint(temperature_readings)</code></pre>"
+)
+```
+
+`r longmcq(opts13)`
+
+---
+
+### Question 14: Vector Indexing
+Given `temperature_readings <- c("Monday"=30.0, "Tuesday"=28.0, "Wednesday"=27.0, "Thursday"=28.5, "Friday"=30.5, "Saturday"=29.0, "Sunday"=29.5)`:
+
+How would you extract the temperature for `"Wednesday"` using its name, and also remove the temperature readings for `"Saturday"` and `"Sunday"` from the vector?
+
+```{r q14, echo=FALSE}
+opts14 <- c(
+  "temperature_readings[\"Wednesday\"] and temperature_readings[-c(6, 7)]",
+  "temperature_readings[] and temperature_readings[-\"Saturday\", -\"Sunday\"]",
+  answer = "temperature_readings[\"Wednesday\"] and temperature_readings[c(-6, -7)]",
+  "temperature_readings$Wednesday and temperature_readings[1:5]"
+)
+
+cat(longmcq(opts14))
+```
+
+---
+
+### Question 15: Sequence and Replicate Functions
+Which R code snippet correctly creates a sequence from `0.5` to `10.0` with a step size of `0.75`, and repeats `my_data <- c("A", 10, TRUE)` so `"A"` appears once, `10` twice, and `TRUE` three times?
+
+```{r q15, echo=FALSE, results='asis'}
+opts15 <- c(
+  "seq(0.5, 10.0, by = 0.75)\nmy_data <- c(\"A\", 10, TRUE)\nrep(my_data, each = c(1, 2, 3))",
+  "seq(from = 0.5, to = 10.0, by = 0.75)\nmy_data <- c(\"A\", 10, TRUE)\nrep(my_data, times = c(1, 2, 3))",
+  "sequence(0.5, 10.0, 0.75)\nmy_data <- c(\"A\", 10, TRUE)\nrep(my_data, c(1, 2, 3))",
+  answer = "seq(from = 0.5, to = 10.0, by = 0.75)\nmy_data <- c(\"A\", 10, TRUE)\nrep(my_data, c(1, 2, 3))"
+)
+```
+
+`r longmcq(opts15)`
+---
+
+### Question 16: Matrix Creation and Transposition
+Which R code snippet correctly creates a matrix with 4 rows and 3 columns filled row-wise with numbers 1 to 12, sets row names, and transposes it?
+
+```{r q16, echo=FALSE, results='asis'}
+opts16 <- c(
+  "my_matrix <- matrix(1:12, ncol = 3, byrow = TRUE)\nrownames(my_matrix) <- paste0(\"Row\", 1:4)\nt(my_matrix)",
+  "my_matrix <- matrix(1:12, nrow = 4, byrow = FALSE)\nrow.names(my_matrix) <- c(\"Row1\", \"Row2\", \"Row3\", \"Row4\")\ntranspose(my_matrix)",
+  answer = "my_matrix <- matrix(1:12, nrow = 4, ncol = 3, byrow = TRUE)\nrownames(my_matrix) <- c(\"Row1\", \"Row2\", \"Row3\", \"Row4\")\nt(my_matrix)",
+  "my_matrix <- as.matrix(1:12, rows = 4, cols = 3, fill.by.row = TRUE)\nrownames(my_matrix) <- LETTERS[1:4]\nmy_matrix %T%"
+)
+```
+
+`r longmcq(opts16)`
+
+---
+
+### Question 17: Combining Vectors into Matrices
+Which snippet correctly combines `math_scores`, `science_scores`, and `art_scores` into columns with named headings `"Math"`, `"Science"`, and `"Art"`?
+
+```{r q17, echo=FALSE, results='asis'}
+opts17 <- c(
+  "student_scores_by_col <- rbind(math_scores, science_scores, art_scores)\ncolnames(student_scores_by_col) <- c(\"Math\", \"Science\", \"Art\")",
+  "student_scores_by_col <- matrix(c(math_scores, science_scores, art_scores), ncol = 3, byrow = FALSE)\ncolnames(student_scores_by_col) <- c(\"Math\", \"Science\", \"Art\")",
+  answer = "student_scores_by_col <- cbind(\"Math\" = math_scores, \"Science\" = science_scores, \"Art\" = art_scores)",
+  "student_scores_by_col <- list(Math = math_scores, Science = science_scores, Art = art_scores)"
+)
+```
+
+`r longmcq(opts17)`
+
+---
+
+### Question 18: Factor Application
+Given `rating_values <- c(1, 0, 2, 1, 3, 0)`, you create a factor `customer_rating` from it with levels `"Poor"`, `"Fair"`, `"Good"`, `"Excellent"` representing 0, 1, 2, and 3 respectively. What would `as.numeric(customer_rating)` return?
+
+```{r q18, echo=FALSE, results='asis'}
+opts18 <- c(
+  "c(\"Fair\", \"Poor\", \"Good\", \"Fair\", \"Excellent\", \"Poor\")",
+  "c(0, 1, 2, 1, 3, 0)",
+  "c(\"Poor\", \"Fair\", \"Good\", \"Excellent\")",
+  answer = "c(2, 1, 3, 2, 4, 1)"
+)
+```
+
+`r longmcq(opts18)`
+
+`r hide("Show Explanation")`
+Factors store levels internally as integers starting at 1. Since `"Poor"` (0) is the first level, it gets coded as `1`, `"Fair"` (1) becomes `2`, `"Good"` (2) becomes `3`, and `"Excellent"` (3) becomes `4`.
+`r unhide()`
+
+---
+
+### Question 19: Data Frame Creation and Access
+Which code snippet creates a data frame `weather_df`, prints the `days_of_week` column using two valid methods, and prints the first row?
+
+```{r q19, echo=FALSE, results='asis'}
+opts19 <- c(
+  "weather_df <- data.frame(temperature_readings, days_of_week)\nprint(weather_df$days_of_week)\nprint(weather_df[, 2])\nprint(weather_df[1])",
+  answer = "weather_df <- data.frame(temperature_readings, days_of_week)\nprint(weather_df$days_of_week)\nprint(weather_df[, \"days_of_week\"])\nprint(weather_df[1, ])",
+  "weather_df <- list(temp = temperature_readings, days = days_of_week)\nprint(weather_df[[\"days\"]])\nprint(weather_df[[2]])\nprint(weather_df[1])",
+  "weather_df <- data.frame(temp = temperature_readings, day = days_of_week)\nprint(weather_df[2])\nprint(weather_df[c(T,T,F,F,F,F,F), ])\nprint(weather_df[1])"
+)
+```
+
+`r longmcq(opts19)`
+
+---
+
+### Question 20: Conditional Selection for Vectors
+Which code snippet extracts temperatures greater than `29.0`, and then extracts temperatures that are `<= 28.0` OR `> 30.0`?
+
+```{r q20, echo=FALSE, results='asis'}
+opts20 <- c(
+  "temperature_readings[temperature_readings >= 29.0]\ntemperature_readings[temperature_readings <= 28.0 & temperature_readings > 30.0]",
+  answer = "temperature_readings[temperature_readings > 29.0]\ntemperature_readings[temperature_readings <= 28.0 | temperature_readings > 30.0]",
+  "temperature_readings[which(temperature_readings > 29.0)]\ntemperature_readings[any(temperature_readings <= 28.0, temperature_readings > 30.0)]"
+)
+```
+
+`r longmcq(opts20)`
+---
+
+### Question 121: Conditional Selection for Data Frames
+Using `weather_df`, how do you select all rows where `temperature_readings > 29.5`, and rows where `rainfall_mm > 5.0`?
+
+```{r q21, echo=FALSE, results='asis'}
+opts21 <- c(
+  "weather_df[temperature_readings > 29.5, ]\nweather_df[rainfall_mm > 5.0, ]",
+  answer = "weather_df[weather_df$temperature_readings > 29.5, ]\nweather_df[weather_df$rainfall_mm > 5.0, ]",
+  "subset(weather_df, temperature_readings > 29.5)\nsubset(weather_df, rainfall_mm > 5.0)",
+  "weather_df[weather_df[[\"temperature_readings\"]] > 29.5]\nweather_df[weather_df[[\"rainfall_mm\"]] > 5.0]"
+)
+```
+
+`r longmcq(opts21)`
+---
+
+### Question 22: Handling Missing Values
+You have `sales_data <- c(100, 150, NA, 120, 200, NA)`. Which code correctly checks for missing values and calculates the sum excluding `NA`s?
+
+```{r q22, echo=FALSE, results='asis'}
+opts22 <- c(
+  "a)<br><code>any(is.na(sales_data))</code><br><code>sum(sales_data, na.omit = TRUE)</code>",
+  "b)<br><code>is.na(sales_data)</code><br><code>sum(sales_data, ignore.na = TRUE)</code>",
+  answer = "c)<br><code>is.na(sales_data)</code><br><code>sum(sales_data, na.rm = TRUE)</code>",
+  "d)<br><code>sales_data == NA</code><br><code>sum(sales_data[complete.cases(sales_data)])</code>"
+)
+```
+
+`r longmcq(opts22)`
+
+`r hide("Show Explanation")`
+`is.na()` tests each element for missingness, and `na.rm = TRUE` tells `sum()` to ignore `NA` values during addition.
+`r unhide()`
+
+
 

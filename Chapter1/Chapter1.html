@@ -468,15 +468,15 @@ options inside an R chunk with <code>echo=FALSE</code>.</p>
 <h3>Question 1: R Assignment Operators</h3>
 <p>Which of the following statements correctly describes the primary
 ways to assign variables in R?</p>
-<div id="radio_IONVABCXEL" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_IONVABCXEL" value></input>
+<div id="radio_QBRWTHFMJO" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_QBRWTHFMJO" value></input>
 <span>Variables can only be assigned using the <code>=</code>
-operator.</span></label><label><input type="radio" autocomplete="off" name="radio_IONVABCXEL" value></input>
+operator.</span></label><label><input type="radio" autocomplete="off" name="radio_QBRWTHFMJO" value></input>
 <span>Variables can only be assigned using the <code>&lt;-</code>
-operator.</span></label><label><input type="radio" autocomplete="off" name="radio_IONVABCXEL" value="answer"></input>
+operator.</span></label><label><input type="radio" autocomplete="off" name="radio_QBRWTHFMJO" value="answer"></input>
 <span>Variables can be assigned using either the <code>&lt;-</code> or
 the <code>=</code>
-operator.</span></label><label><input type="radio" autocomplete="off" name="radio_IONVABCXEL" value></input>
+operator.</span></label><label><input type="radio" autocomplete="off" name="radio_QBRWTHFMJO" value></input>
 <span>Variables are assigned using <code>-&gt;</code> for left-to-right
 assignment only.</span></label>
 </div>
@@ -488,6 +488,517 @@ Show Explanation
 <code>&lt;-</code> or <code>=</code>. While <code>-&gt;</code> exists
 for right-to-left assignment, <code>&lt;-</code> and <code>=</code> are
 the standard primary assignment methods.</p>
+</div>
+<hr />
+</div>
+<div id="question-2-comments-in-r" class="section level3">
+<h3>Question 2: Comments in R</h3>
+<p>How do you write a single-line comment in an R script?</p>
+<div id="radio_RVPJITHRBO" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_RVPJITHRBO" value></input>
+<span><code>// This is a comment</code></span></label><label><input type="radio" autocomplete="off" name="radio_RVPJITHRBO" value></input>
+<span><code>/* This is a comment */</code></span></label><label><input type="radio" autocomplete="off" name="radio_RVPJITHRBO" value="answer"></input>
+<span><code># This is a comment</code></span></label><label><input type="radio" autocomplete="off" name="radio_RVPJITHRBO" value></input>
+<span><code>-- This is a comment</code></span></label>
+</div>
+</div>
+<div id="question-3-comments-in-r" class="section level3">
+<h3>Question 3: Comments in R</h3>
+<p>If you create a variable named <code>myvar &lt;- 10</code> and then
+call <code>MyVar</code>, what will happen?</p>
+<div id="radio_HWMUYRWCHN" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_HWMUYRWCHN" value></input>
+<span>It will return 10 because R is
+case-insensitive.</span></label><label><input type="radio" autocomplete="off" name="radio_HWMUYRWCHN" value="answer"></input>
+<span>It will throw an &#39;object not found&#39; error because R is
+case-sensitive.</span></label><label><input type="radio" autocomplete="off" name="radio_HWMUYRWCHN" value></input>
+<span>It will prompt you to correct the
+spelling.</span></label><label><input type="radio" autocomplete="off" name="radio_HWMUYRWCHN" value></input>
+<span>R will automatically convert <code>MyVar</code> to lowercase
+<code>myvar</code>.</span></label>
+</div>
+</div>
+<div id="question-4-understanding-r-objects" class="section level3">
+<h3>Question 4: Understanding R Objects</h3>
+<p>What is the abstract term for anything that can be assigned to a
+variable in R, and which of these is not listed as a general object type
+in the primary enumeration?</p>
+<div id="radio_RRRSXZQEQG" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_RRRSXZQEQG" value></input>
+<span>An expression; functions are not
+listed.</span></label><label><input type="radio" autocomplete="off" name="radio_RRRSXZQEQG" value></input>
+<span>A function; integers are not
+listed.</span></label><label><input type="radio" autocomplete="off" name="radio_RRRSXZQEQG" value="answer"></input>
+<span>An object; matrices are not listed as a general type under core
+object
+types.</span></label><label><input type="radio" autocomplete="off" name="radio_RRRSXZQEQG" value></input>
+<span>A variable; vectors are not listed.</span></label>
+</div>
+<div class="webex-solution">
+<button>
+Show Explanation
+</button>
+<p>&quot;Object&quot; is the abstract term for anything assigned to a variable.
+Core enumerated object types include integers, vectors, and lists. While
+matrices are important data structures, they are built on vectors rather
+than listed as a standalone core type initially.</p>
+</div>
+<hr />
+</div>
+<div id="question-5-data-types-in-r" class="section level3">
+<h3>Question 5: Data Types in R</h3>
+<p>Which of the following combinations correctly lists four main types
+of data in R and their corresponding examples?</p>
+<div id="radio_DXXNEZSYOV" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_DXXNEZSYOV" value></input>
+<span>Numerical (1000L), Character (TRUE), Integer (&quot;Table&quot;), Boolean
+(1)</span></label><label><input type="radio" autocomplete="off" name="radio_DXXNEZSYOV" value="answer"></input>
+<span>Character (&quot;Table&quot;), Integer (1000L), Boolean (TRUE), Numerical
+(1)</span></label><label><input type="radio" autocomplete="off" name="radio_DXXNEZSYOV" value></input>
+<span>Numerical (&quot;Table&quot;), Character (1), Integer (TRUE), Boolean
+(1000L)</span></label><label><input type="radio" autocomplete="off" name="radio_DXXNEZSYOV" value></input>
+<span>Integer (1), Boolean (&quot;Table&quot;), Numerical (TRUE), Character
+(1000L)</span></label>
+</div>
+<div class="webex-solution">
+<button>
+Show Explanation
+</button>
+<p>In R: * <code>&quot;Table&quot;</code> is a <strong>Character</strong> string.
+* <code>1000L</code> (with the <code>L</code> suffix) is an
+<strong>Integer</strong>. * <code>TRUE</code> is a <strong>Boolean /
+Logical</strong>. * <code>1</code> is <strong>Numeric</strong>.</p>
+</div>
+<hr />
+</div>
+<div id="question-6-characteristics-of-vectors" class="section level3">
+<h3>Question 6: Characteristics of Vectors</h3>
+<p>Which statement accurately describes a crucial characteristic of
+vectors in R, particularly concerning arithmetic operations?</p>
+<div id="radio_VGQUNJZAJU" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_VGQUNJZAJU" value></input>
+<span>Vectors must always contain data of mixed
+types.</span></label><label><input type="radio" autocomplete="off" name="radio_VGQUNJZAJU" value="answer"></input>
+<span>For calculations with vectors to be straightforward, they should
+generally be of the same
+length.</span></label><label><input type="radio" autocomplete="off" name="radio_VGQUNJZAJU" value></input>
+<span>Character vectors use acute accent keys for text
+strings.</span></label><label><input type="radio" autocomplete="off" name="radio_VGQUNJZAJU" value></input>
+<span>Data vectors are exclusively used for integers.</span></label>
+</div>
+<div class="webex-solution">
+<button>
+Show Explanation
+</button>
+<p>Vector calculations operate element-by-element, so vectors should
+generally be of equal length to avoid unexpected recycling behavior.</p>
+</div>
+<hr />
+</div>
+<div id="question-7-functions-and-arguments" class="section level3">
+<h3>Question 7: Functions and Arguments</h3>
+<p>In an R function call like <code>log(x)</code>, what is the
+difference between <code>x</code> when it&#39;s provided in the call versus
+its definition within the function&#39;s structure?</p>
+<div id="radio_ZHEVKKOUWQ" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_ZHEVKKOUWQ" value></input>
+<span>x in the call is a &#39;formal argument&#39;, while in the function
+definition it&#39;s an &#39;actual
+argument&#39;.</span></label><label><input type="radio" autocomplete="off" name="radio_ZHEVKKOUWQ" value></input>
+<span>Both are always &#39;formal
+arguments&#39;.</span></label><label><input type="radio" autocomplete="off" name="radio_ZHEVKKOUWQ" value="answer"></input>
+<span>x as provided in log(x) is an &#39;actual argument&#39;, connected to a
+&#39;formal argument&#39; defined within the
+function.</span></label><label><input type="radio" autocomplete="off" name="radio_ZHEVKKOUWQ" value></input>
+<span>x is neither an actual nor formal argument; it&#39;s always an
+&#39;object&#39;.</span></label>
+</div>
+<div class="webex-solution">
+<button>
+Show Explanation
+</button>
+<ul>
+<li><strong>Actual arguments</strong> are the specific values/variables
+passed during a function call.</li>
+<li><strong>Formal arguments</strong> are the parameters declared in the
+function&#39;s definition.</li>
+</ul>
+</div>
+<hr />
+</div>
+<div id="question-8-the-purpose-of-factors" class="section level3">
+<h3>Question 8: The Purpose of Factors</h3>
+<p>Why are &#39;factors&#39; considered useful in R, particularly in statistical
+data analysis?</p>
+<div id="radio_YYNWMRJNFV" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_YYNWMRJNFV" value></input>
+<span>They allow vectors to contain mixed data
+types.</span></label><label><input type="radio" autocomplete="off" name="radio_YYNWMRJNFV" value></input>
+<span>They are primarily used for mathematical matrix
+operations.</span></label><label><input type="radio" autocomplete="off" name="radio_YYNWMRJNFV" value="answer"></input>
+<span>They represent categorical variables, which is useful for
+indicating subdivisions of data and have a set of
+levels.</span></label><label><input type="radio" autocomplete="off" name="radio_YYNWMRJNFV" value></input>
+<span>They are a more efficient way to store numerical
+sequences.</span></label>
+</div>
+<div class="webex-solution">
+<button>
+Show Explanation
+</button>
+<p>Factors store categorical variables (like experimental groups or
+levels of treatment) and track predefined levels.</p>
+</div>
+<hr />
+</div>
+<div id="question-9-differentiating-lists-and-vectors" class="section level3">
+<h3>Question 9: Differentiating Lists and Vectors</h3>
+<p>What is the fundamental difference between a &#39;list&#39; and a &#39;vector&#39; in
+R regarding the types of objects they can contain?</p>
+<div id="radio_LFMWZRPPPZ" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_LFMWZRPPPZ" value></input>
+<span>Vectors can hold objects of different types, while lists can only
+hold objects of the same
+type.</span></label><label><input type="radio" autocomplete="off" name="radio_LFMWZRPPPZ" value="answer"></input>
+<span>Lists can hold collections of objects of different types, whereas
+a vector must contain elements of the same
+type.</span></label><label><input type="radio" autocomplete="off" name="radio_LFMWZRPPPZ" value></input>
+<span>Both lists and vectors can hold any type of object without
+restriction.</span></label><label><input type="radio" autocomplete="off" name="radio_LFMWZRPPPZ" value></input>
+<span>Lists are only for numeric data, and vectors are for character
+data.</span></label>
+</div>
+<div class="webex-solution">
+<button>
+Show Explanation
+</button>
+<p>Atomic vectors require all elements to be of the exact same data type
+(homogenous). Lists are generic vectors that can store elements of
+varying types and shapes (heterogeneous).</p>
+</div>
+<hr />
+</div>
+<div id="question-10-data-frames-structure" class="section level3">
+<h3>Question 10: Data Frames Structure</h3>
+<p>What is a &#39;data frame&#39; in R, and what is its crucial characteristic
+regarding the length of its constituent components?</p>
+<div id="radio_PGNDGIEOKY" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_PGNDGIEOKY" value></input>
+<span>A data frame is a single vector of mixed data types; its
+components can have varying
+lengths.</span></label><label><input type="radio" autocomplete="off" name="radio_PGNDGIEOKY" value></input>
+<span>A data frame is a matrix that can only store numeric
+values.</span></label><label><input type="radio" autocomplete="off" name="radio_PGNDGIEOKY" value="answer"></input>
+<span>A data frame is a list of vectors and/or factors of the same
+length, where data in the same position come from the same experimental
+unit.</span></label><label><input type="radio" autocomplete="off" name="radio_PGNDGIEOKY" value></input>
+<span>A data frame is an arbitrary collection of R objects without any
+length constraints.</span></label>
+</div>
+<div class="webex-solution">
+<button>
+Show Explanation
+</button>
+<p>A data frame is structured like a table where each column is a vector
+or factor. All columns must have identical lengths (rows) for the data
+frame to be valid.</p>
+</div>
+<hr />
+</div>
+<div id="question-11-printing-output-print-vs.-cat" class="section level3">
+<h3>Question 11: Printing Output: <code>print()</code> vs.
+<code>cat()</code></h3>
+<p>When displaying a character vector in R, what is the primary
+difference between using <code>print()</code> and
+<code>cat()</code>?</p>
+<div id="radio_LQKHORRVOW" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_LQKHORRVOW" value></input>
+<span>print() displays only the first element, while cat() displays all
+elements.</span></label><label><input type="radio" autocomplete="off" name="radio_LQKHORRVOW" value></input>
+<span>cat() always adds a newline character after each element, while
+print() does
+not.</span></label><label><input type="radio" autocomplete="off" name="radio_LQKHORRVOW" value="answer"></input>
+<span>print() includes quotation marks around character strings, whereas
+cat() displays them without quotation
+marks.</span></label><label><input type="radio" autocomplete="off" name="radio_LQKHORRVOW" value></input>
+<span>print() is used for numeric data, and cat() is for character
+data.</span></label>
+</div>
+<div class="webex-solution">
+<button>
+Show Explanation
+</button>
+<p><code>print()</code> outputs formal string representations including
+quotes (e.g., <code>&quot;John&quot;</code>), whereas <code>cat()</code>
+concatenates and prints raw unquoted text (e.g., <code>John</code>).</p>
+</div>
+<hr />
+</div>
+<div id="question-12-handling-missing-values-na" class="section level3">
+<h3>Question 12: Handling Missing Values (<code>NA</code>)</h3>
+<p>If you perform an arithmetic operation in R like <code>1 + NA</code>,
+what will be the typical result, and why?</p>
+<div id="radio_SQRHRJMZVY" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_SQRHRJMZVY" value></input>
+<span>The result will be 1, because NA is treated as 0 in arithmetic
+operations.</span></label><label><input type="radio" autocomplete="off" name="radio_SQRHRJMZVY" value></input>
+<span>The operation will produce an error, as NA cannot be used in
+arithmetic.</span></label><label><input type="radio" autocomplete="off" name="radio_SQRHRJMZVY" value="answer"></input>
+<span>The result will be NA, because R treats NA as missing information
+and does not assume it is
+0.</span></label><label><input type="radio" autocomplete="off" name="radio_SQRHRJMZVY" value></input>
+<span>The result will be NaN (Not a Number), indicating an undefined
+operation.</span></label>
+</div>
+<div class="webex-solution">
+<button>
+Show Explanation
+</button>
+<p>R propagates <code>NA</code> values throughout calculations because
+operating on unknown data yields an unknown (<code>NA</code>)
+result.</p>
+</div>
+<hr />
+</div>
+</div>
+<div id="part-2-application-questions" class="section level2">
+<h2>Part 2: Application Questions</h2>
+<div id="question-13-vector-creation-and-naming" class="section level3">
+<h3>Question 13: Vector Creation and Naming</h3>
+<p>Which of the following R code snippets correctly creates vectors for
+temperatures and days, assigns the days as names to the temperatures,
+and prints the result?</p>
+<div id="radio_VKNMHDMQGC" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_VKNMHDMQGC" value></input>
+<span>A)<br>
+<pre><code>temperature_readings = c(30.0, 28.0, 27.0, 28.5, 30.5, 29.0, 29.5)
+days_of_week = c(&quot;Monday&quot;, &quot;Tuesday&quot;, &quot;Wednesday&quot;, &quot;Thursday&quot;, &quot;Friday&quot;, &quot;Saturday&quot;, &quot;Sunday&quot;)
+labels(temperature_readings) = days_of_week
+cat(temperature_readings)</code></pre>
+</span></label><label><input type="radio" autocomplete="off" name="radio_VKNMHDMQGC" value="answer"></input>
+<span>B)<br>
+<pre><code>temperature_readings &lt;- c(30.0, 28.0, 27.0, 28.5, 30.5, 29.0, 29.5)
+days_of_week &lt;- c(&quot;Monday&quot;, &quot;Tuesday&quot;, &quot;Wednesday&quot;, &quot;Thursday&quot;, &quot;Friday&quot;, &quot;Saturday&quot;, &quot;Sunday&quot;)
+names(temperature_readings) &lt;- days_of_week
+print(temperature_readings)</code></pre>
+</span></label><label><input type="radio" autocomplete="off" name="radio_VKNMHDMQGC" value></input>
+<span>C)<br>
+<pre><code>temp_readings &lt;- list(30.0, 28.0, 27.0, 28.5, 30.5, 29.0, 29.5)
+days &lt;- c(&quot;Mon&quot;, &quot;Tue&quot;, &quot;Wed&quot;, &quot;Thu&quot;, &quot;Fri&quot;, &quot;Sat&quot;, &quot;Sun&quot;)
+names(temp_readings) &lt;- days
+print(temp_readings)</code></pre>
+</span></label><label><input type="radio" autocomplete="off" name="radio_VKNMHDMQGC" value></input>
+<span>D)<br>
+<pre><code>temperature_readings &lt;- c(30.0, 28.0, 27.0, 28.5, 30.5, 29.0, 29.5)
+days_of_week &lt;- c(&quot;Monday&quot;, &quot;Tuesday&quot;, &quot;Wednesday&quot;, &quot;Thursday&quot;, &quot;Friday&quot;, &quot;Saturday&quot;, &quot;Sunday&quot;)
+temperature_readings$names &lt;- days_of_week
+print(temperature_readings)</code></pre>
+</span></label>
+</div>
+<hr />
+</div>
+<div id="question-14-vector-indexing" class="section level3">
+<h3>Question 14: Vector Indexing</h3>
+<p>Given
+<code>temperature_readings &lt;- c(&quot;Monday&quot;=30.0, &quot;Tuesday&quot;=28.0, &quot;Wednesday&quot;=27.0, &quot;Thursday&quot;=28.5, &quot;Friday&quot;=30.5, &quot;Saturday&quot;=29.0, &quot;Sunday&quot;=29.5)</code>:</p>
+<p>How would you extract the temperature for <code>&quot;Wednesday&quot;</code>
+using its name, and also remove the temperature readings for
+<code>&quot;Saturday&quot;</code> and <code>&quot;Sunday&quot;</code> from the vector?</p>
+<pre><code>## &lt;div class=&#39;webex-radiogroup&#39; id=&#39;radio_YNLFRAIPOL&#39;&gt;&lt;label&gt;&lt;input type=&quot;radio&quot; autocomplete=&quot;off&quot; name=&quot;radio_YNLFRAIPOL&quot; value=&quot;&quot;&gt;&lt;/input&gt; &lt;span&gt;temperature_readings[&quot;Wednesday&quot;] and temperature_readings[-c(6, 7)]&lt;/span&gt;&lt;/label&gt;&lt;label&gt;&lt;input type=&quot;radio&quot; autocomplete=&quot;off&quot; name=&quot;radio_YNLFRAIPOL&quot; value=&quot;&quot;&gt;&lt;/input&gt; &lt;span&gt;temperature_readings[] and temperature_readings[-&quot;Saturday&quot;, -&quot;Sunday&quot;]&lt;/span&gt;&lt;/label&gt;&lt;label&gt;&lt;input type=&quot;radio&quot; autocomplete=&quot;off&quot; name=&quot;radio_YNLFRAIPOL&quot; value=&quot;answer&quot;&gt;&lt;/input&gt; &lt;span&gt;temperature_readings[&quot;Wednesday&quot;] and temperature_readings[c(-6, -7)]&lt;/span&gt;&lt;/label&gt;&lt;label&gt;&lt;input type=&quot;radio&quot; autocomplete=&quot;off&quot; name=&quot;radio_YNLFRAIPOL&quot; value=&quot;&quot;&gt;&lt;/input&gt; &lt;span&gt;temperature_readings$Wednesday and temperature_readings[1:5]&lt;/span&gt;&lt;/label&gt;&lt;/div&gt;</code></pre>
+<hr />
+</div>
+<div id="question-15-sequence-and-replicate-functions" class="section level3">
+<h3>Question 15: Sequence and Replicate Functions</h3>
+<p>Which R code snippet correctly creates a sequence from
+<code>0.5</code> to <code>10.0</code> with a step size of
+<code>0.75</code>, and repeats
+<code>my_data &lt;- c(&quot;A&quot;, 10, TRUE)</code> so <code>&quot;A&quot;</code> appears
+once, <code>10</code> twice, and <code>TRUE</code> three times?</p>
+<div id="radio_JHVIVYRTSV" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_JHVIVYRTSV" value></input>
+<span>seq(0.5, 10.0, by = 0.75) my_data &lt;- c(&quot;A&quot;, 10, TRUE)
+rep(my_data, each = c(1, 2,
+3))</span></label><label><input type="radio" autocomplete="off" name="radio_JHVIVYRTSV" value></input>
+<span>seq(from = 0.5, to = 10.0, by = 0.75) my_data &lt;- c(&quot;A&quot;, 10,
+TRUE) rep(my_data, times = c(1, 2,
+3))</span></label><label><input type="radio" autocomplete="off" name="radio_JHVIVYRTSV" value></input>
+<span>sequence(0.5, 10.0, 0.75) my_data &lt;- c(&quot;A&quot;, 10, TRUE)
+rep(my_data, c(1, 2,
+3))</span></label><label><input type="radio" autocomplete="off" name="radio_JHVIVYRTSV" value="answer"></input>
+<span>seq(from = 0.5, to = 10.0, by = 0.75) my_data &lt;- c(&quot;A&quot;, 10,
+TRUE) rep(my_data, c(1, 2, 3))</span></label>
+</div>
+<hr />
+</div>
+<div id="question-16-matrix-creation-and-transposition" class="section level3">
+<h3>Question 16: Matrix Creation and Transposition</h3>
+<p>Which R code snippet correctly creates a matrix with 4 rows and 3
+columns filled row-wise with numbers 1 to 12, sets row names, and
+transposes it?</p>
+<div id="radio_SGUDUAEBRA" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_SGUDUAEBRA" value></input>
+<span>my_matrix &lt;- matrix(1:12, ncol = 3, byrow = TRUE)
+rownames(my_matrix) &lt;- paste0(&quot;Row&quot;, 1:4)
+t(my_matrix)</span></label><label><input type="radio" autocomplete="off" name="radio_SGUDUAEBRA" value></input>
+<span>my_matrix &lt;- matrix(1:12, nrow = 4, byrow = FALSE)
+row.names(my_matrix) &lt;- c(&quot;Row1&quot;, &quot;Row2&quot;, &quot;Row3&quot;, &quot;Row4&quot;)
+transpose(my_matrix)</span></label><label><input type="radio" autocomplete="off" name="radio_SGUDUAEBRA" value="answer"></input>
+<span>my_matrix &lt;- matrix(1:12, nrow = 4, ncol = 3, byrow = TRUE)
+rownames(my_matrix) &lt;- c(&quot;Row1&quot;, &quot;Row2&quot;, &quot;Row3&quot;, &quot;Row4&quot;)
+t(my_matrix)</span></label><label><input type="radio" autocomplete="off" name="radio_SGUDUAEBRA" value></input>
+<span>my_matrix &lt;- as.matrix(1:12, rows = 4, cols = 3, fill.by.row =
+TRUE) rownames(my_matrix) &lt;- LETTERS[1:4] my_matrix
+%T%</span></label>
+</div>
+<hr />
+</div>
+<div id="question-17-combining-vectors-into-matrices" class="section level3">
+<h3>Question 17: Combining Vectors into Matrices</h3>
+<p>Which snippet correctly combines <code>math_scores</code>,
+<code>science_scores</code>, and <code>art_scores</code> into columns
+with named headings <code>&quot;Math&quot;</code>, <code>&quot;Science&quot;</code>, and
+<code>&quot;Art&quot;</code>?</p>
+<div id="radio_FHFRKTCELZ" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_FHFRKTCELZ" value></input>
+<span>student_scores_by_col &lt;- rbind(math_scores, science_scores,
+art_scores) colnames(student_scores_by_col) &lt;- c(&quot;Math&quot;, &quot;Science&quot;,
+&quot;Art&quot;)</span></label><label><input type="radio" autocomplete="off" name="radio_FHFRKTCELZ" value></input>
+<span>student_scores_by_col &lt;- matrix(c(math_scores, science_scores,
+art_scores), ncol = 3, byrow = FALSE) colnames(student_scores_by_col)
+&lt;- c(&quot;Math&quot;, &quot;Science&quot;,
+&quot;Art&quot;)</span></label><label><input type="radio" autocomplete="off" name="radio_FHFRKTCELZ" value="answer"></input>
+<span>student_scores_by_col &lt;- cbind(&quot;Math&quot; = math_scores, &quot;Science&quot;
+= science_scores, &quot;Art&quot; =
+art_scores)</span></label><label><input type="radio" autocomplete="off" name="radio_FHFRKTCELZ" value></input>
+<span>student_scores_by_col &lt;- list(Math = math_scores, Science =
+science_scores, Art = art_scores)</span></label>
+</div>
+<hr />
+</div>
+<div id="question-18-factor-application" class="section level3">
+<h3>Question 18: Factor Application</h3>
+<p>Given <code>rating_values &lt;- c(1, 0, 2, 1, 3, 0)</code>, you
+create a factor <code>customer_rating</code> from it with levels
+<code>&quot;Poor&quot;</code>, <code>&quot;Fair&quot;</code>, <code>&quot;Good&quot;</code>,
+<code>&quot;Excellent&quot;</code> representing 0, 1, 2, and 3 respectively. What
+would <code>as.numeric(customer_rating)</code> return?</p>
+<div id="radio_XHJYJRRSTP" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_XHJYJRRSTP" value></input>
+<span>c(&quot;Fair&quot;, &quot;Poor&quot;, &quot;Good&quot;, &quot;Fair&quot;, &quot;Excellent&quot;,
+&quot;Poor&quot;)</span></label><label><input type="radio" autocomplete="off" name="radio_XHJYJRRSTP" value></input>
+<span>c(0, 1, 2, 1, 3,
+0)</span></label><label><input type="radio" autocomplete="off" name="radio_XHJYJRRSTP" value></input>
+<span>c(&quot;Poor&quot;, &quot;Fair&quot;, &quot;Good&quot;,
+&quot;Excellent&quot;)</span></label><label><input type="radio" autocomplete="off" name="radio_XHJYJRRSTP" value="answer"></input>
+<span>c(2, 1, 3, 2, 4, 1)</span></label>
+</div>
+<div class="webex-solution">
+<button>
+Show Explanation
+</button>
+<p>Factors store levels internally as integers starting at 1. Since
+<code>&quot;Poor&quot;</code> (0) is the first level, it gets coded as
+<code>1</code>, <code>&quot;Fair&quot;</code> (1) becomes <code>2</code>,
+<code>&quot;Good&quot;</code> (2) becomes <code>3</code>, and
+<code>&quot;Excellent&quot;</code> (3) becomes <code>4</code>.</p>
+</div>
+<hr />
+</div>
+<div id="question-19-data-frame-creation-and-access" class="section level3">
+<h3>Question 19: Data Frame Creation and Access</h3>
+<p>Which code snippet creates a data frame <code>weather_df</code>,
+prints the <code>days_of_week</code> column using two valid methods, and
+prints the first row?</p>
+<div id="radio_HTEVAZWOPK" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_HTEVAZWOPK" value></input>
+<span>weather_df &lt;- data.frame(temperature_readings, days_of_week)
+print(weather_df<span class="math inline">\(days_of_week)
+print(weather_df[, 2])
+print(weather_df[1])&lt;/span&gt;&lt;/label&gt;&lt;label&gt;&lt;input
+type=&quot;radio&quot; autocomplete=&quot;off&quot;
+name=&quot;radio_HTEVAZWOPK&quot;
+value=&quot;answer&quot;&gt;&lt;/input&gt; &lt;span&gt;weather_df &lt;-
+data.frame(temperature_readings, days_of_week)
+print(weather_df\)</span>days_of_week) print(weather_df[,
+&quot;days_of_week&quot;]) print(weather_df[1,
+])</span></label><label><input type="radio" autocomplete="off" name="radio_HTEVAZWOPK" value></input>
+<span>weather_df &lt;- list(temp = temperature_readings, days =
+days_of_week) print(weather_df[[&quot;days&quot;]]) print(weather_df[[2]])
+print(weather_df[1])</span></label><label><input type="radio" autocomplete="off" name="radio_HTEVAZWOPK" value></input>
+<span>weather_df &lt;- data.frame(temp = temperature_readings, day =
+days_of_week) print(weather_df[2]) print(weather_df[c(T,T,F,F,F,F,F), ])
+print(weather_df[1])</span></label>
+</div>
+<hr />
+</div>
+<div id="question-20-conditional-selection-for-vectors" class="section level3">
+<h3>Question 20: Conditional Selection for Vectors</h3>
+<p>Which code snippet extracts temperatures greater than
+<code>29.0</code>, and then extracts temperatures that are
+<code>&lt;= 28.0</code> OR <code>&gt; 30.0</code>?</p>
+<div id="radio_NSFVZFHGKW" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_NSFVZFHGKW" value></input>
+<span>temperature_readings[temperature_readings &gt;= 29.0]
+temperature_readings[temperature_readings &lt;= 28.0 &amp;
+temperature_readings &gt;
+30.0]</span></label><label><input type="radio" autocomplete="off" name="radio_NSFVZFHGKW" value="answer"></input>
+<span>temperature_readings[temperature_readings &gt; 29.0]
+temperature_readings[temperature_readings &lt;= 28.0 |
+temperature_readings &gt;
+30.0]</span></label><label><input type="radio" autocomplete="off" name="radio_NSFVZFHGKW" value></input>
+<span>temperature_readings[which(temperature_readings &gt; 29.0)]
+temperature_readings[any(temperature_readings &lt;= 28.0,
+temperature_readings &gt; 30.0)]</span></label>
+</div>
+<hr />
+</div>
+<div id="question-121-conditional-selection-for-data-frames" class="section level3">
+<h3>Question 121: Conditional Selection for Data Frames</h3>
+<p>Using <code>weather_df</code>, how do you select all rows where
+<code>temperature_readings &gt; 29.5</code>, and rows where
+<code>rainfall_mm &gt; 5.0</code>?</p>
+<div id="radio_IPZFKAQMNW" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_IPZFKAQMNW" value></input>
+<span>weather_df[temperature_readings &gt; 29.5, ]
+weather_df[rainfall_mm &gt; 5.0,
+]</span></label><label><input type="radio" autocomplete="off" name="radio_IPZFKAQMNW" value="answer"></input>
+<span>weather_df[weather_df<span class="math inline">\(temperature_readings &gt; 29.5, ]
+weather_df[weather_df\)</span>rainfall_mm &gt; 5.0,
+]</span></label><label><input type="radio" autocomplete="off" name="radio_IPZFKAQMNW" value></input>
+<span>subset(weather_df, temperature_readings &gt; 29.5)
+subset(weather_df, rainfall_mm &gt;
+5.0)</span></label><label><input type="radio" autocomplete="off" name="radio_IPZFKAQMNW" value></input>
+<span>weather_df[weather_df[[&quot;temperature_readings&quot;]] &gt; 29.5]
+weather_df[weather_df[[&quot;rainfall_mm&quot;]] &gt; 5.0]</span></label>
+</div>
+<hr />
+</div>
+<div id="question-22-handling-missing-values" class="section level3">
+<h3>Question 22: Handling Missing Values</h3>
+<p>You have <code>sales_data &lt;- c(100, 150, NA, 120, 200, NA)</code>.
+Which code correctly checks for missing values and calculates the sum
+excluding <code>NA</code>s?</p>
+<div id="radio_WCEUWBORPF" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_WCEUWBORPF" value></input>
+<span>a)<br><code>any(is.na(sales_data))</code><br><code>sum(sales_data,
+na.omit =
+TRUE)</code></span></label><label><input type="radio" autocomplete="off" name="radio_WCEUWBORPF" value></input>
+<span>b)<br><code>is.na(sales_data)</code><br><code>sum(sales_data,
+ignore.na =
+TRUE)</code></span></label><label><input type="radio" autocomplete="off" name="radio_WCEUWBORPF" value="answer"></input>
+<span>c)<br><code>is.na(sales_data)</code><br><code>sum(sales_data,
+na.rm =
+TRUE)</code></span></label><label><input type="radio" autocomplete="off" name="radio_WCEUWBORPF" value></input>
+<span>d)<br><code>sales_data ==
+NA</code><br><code>sum(sales_data[complete.cases(sales_data)])</code></span></label>
+</div>
+<div class="webex-solution">
+<button>
+Show Explanation
+</button>
+<p><code>is.na()</code> tests each element for missingness, and
+<code>na.rm = TRUE</code> tells <code>sum()</code> to ignore
+<code>NA</code> values during addition.</p>
 </div>
 </div>
 </div>
