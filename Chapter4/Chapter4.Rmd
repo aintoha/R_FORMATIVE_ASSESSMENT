@@ -1,5 +1,5 @@
 ---
-title: "Web Exercises"
+title: "Probability"
 output: webexercises::webexercises_default
 ---
 
